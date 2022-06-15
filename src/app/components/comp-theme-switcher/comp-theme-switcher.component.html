@@ -1,0 +1,10 @@
+<button
+  class="btn btn-sm btn-primary"
+  (click)="switchTheme()"
+  title="Theme {{ currentTheme }}"
+>
+  <i
+    class="fa"
+    [ngClass]="currentTheme === 'light' ? 'fa-sun-o' : 'fa-moon-o'"
+  ></i>
+</button>
