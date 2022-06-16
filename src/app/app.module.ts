@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //COMPONENTS
 import { CompMainFooterComponent } from './components/comp-main-footer/comp-main-footer.component';
@@ -11,6 +12,8 @@ import { CompMainMenuComponent } from './components/comp-main-menu/comp-main-men
 import { CompMainNavbarComponent } from './components/comp-main-navbar/comp-main-navbar.component';
 import { CompMainSidebarComponent } from './components/comp-main-sidebar/comp-main-sidebar.component';
 import { CompThemeSwitcherComponent } from './components/comp-theme-switcher/comp-theme-switcher.component';
+import { RouteCarsComponent } from './routes/route-cars/route-cars.component';
+import { RouteHomeComponent } from './routes/route-home/route-home.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +23,13 @@ import { CompThemeSwitcherComponent } from './components/comp-theme-switcher/com
     CompMainNavbarComponent,
     CompMainFooterComponent,
     CompThemeSwitcherComponent,
+    RouteCarsComponent,
+    RouteHomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     ToastrModule.forRoot({
       timeOut: 3000,
