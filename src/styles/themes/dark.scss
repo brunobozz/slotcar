@@ -1,33 +1,6 @@
+@import "../variables";
 $theme: "dark" !default;
 
-// Color system
-$white: #ffffff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #999999 !default;
-$gray-600: #7a8288 !default;
-$gray-700: #52575c !default;
-$gray-800: #3a3f44 !default;
-$gray-900: #272b30 !default;
-$gray-1000: #111111 !default;
-$black: #000000 !default;
-
-$blue: #007bff !default;
-$indigo: #6610f2 !default;
-$purple: #6f42c1 !default;
-$pink: #e83e8c !default;
-$red: #ee5f5b !default;
-$orange: #fd7e14 !default;
-$yellow: #f89406 !default;
-$green: #62c462 !default;
-$teal: #20c997 !default;
-$cyan: #5bc0de !default;
-$red-race: #af3030 !default;
-
-$primary: $red-race !default;
-$secondary: $orange !default;
 $success: $green !default;
 $info: $cyan !default;
 $warning: $yellow !default;
