@@ -17,6 +17,7 @@ import { CompThemeSwitcherComponent } from './components/comp-theme-switcher/com
 import { RouteCarsComponent } from './routes/route-cars/route-cars.component';
 import { RouteHomeComponent } from './routes/route-home/route-home.component';
 import { RouteDriversComponent } from './routes/route-drivers/route-drivers.component';
+import { RouteRaceComponent } from './routes/route-race/route-race.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { RouteDriversComponent } from './routes/route-drivers/route-drivers.comp
     RouteCarsComponent,
     RouteHomeComponent,
     RouteDriversComponent,
+    RouteRaceComponent,
   ],
   imports: [
     BrowserModule,

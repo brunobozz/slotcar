@@ -1,0 +1,40 @@
+<h1 class="badge fs-1 bg-secondary">
+  Lap Timer: {{ lap.minute }}:{{ lap.second }}:{{ lap.millisecond }}
+</h1>
+<div>
+  <button class="btn btn-success me-2" (click)="start()">
+    <i class="fa fa-play"></i>
+    <span> Start</span>
+  </button>
+
+  <button class="btn btn-warning me-2" (click)="set()">
+    <i class="fa fa-flag"></i>
+    <span> Set</span>
+  </button>
+
+  <button class="btn btn-info me-2" (click)="pause()">
+    <i class="fa fa-pause"></i>
+    <span> Pause</span>
+  </button>
+
+  <button class="btn btn-danger me-2" (click)="reset()">
+    <i class="fa fa-times"></i>
+    <span> Reset</span>
+  </button>
+</div>
+
+<div *ngIf="lapsRecord.length != 0" class="card mt-4">
+  <div class="card-body">
+    {{ fastestLap.minute }}:{{ fastestLap.second }}:{{ fastestLap.millisecond }}
+  </div>
+</div>
+
+<div *ngIf="lapsRecord.length != 0" class="card mt-4">
+  <div class="card-body">
+    <div class="list-group list-group-flush">
+      <div *ngFor="let lapi of lapsRecord" class="list-group-item">
+        <span>{{ lapi.minute }}:{{ lapi.second }}:{{ lapi.millisecond }}</span>
+      </div>
+    </div>
+  </div>
+</div>
