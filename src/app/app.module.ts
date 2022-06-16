@@ -12,19 +12,27 @@ import { CompMainMenuComponent } from './components/comp-main-menu/comp-main-men
 import { CompMainNavbarComponent } from './components/comp-main-navbar/comp-main-navbar.component';
 import { CompMainSidebarComponent } from './components/comp-main-sidebar/comp-main-sidebar.component';
 import { CompThemeSwitcherComponent } from './components/comp-theme-switcher/comp-theme-switcher.component';
+
+//ROUTES
 import { RouteCarsComponent } from './routes/route-cars/route-cars.component';
 import { RouteHomeComponent } from './routes/route-home/route-home.component';
+import { RouteDriversComponent } from './routes/route-drivers/route-drivers.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+
+    //COMPONENTS
     CompMainMenuComponent,
     CompMainSidebarComponent,
     CompMainNavbarComponent,
     CompMainFooterComponent,
     CompThemeSwitcherComponent,
+
+    //ROUTES
     RouteCarsComponent,
     RouteHomeComponent,
+    RouteDriversComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,12 +3,12 @@ import { ServMovkApiService } from 'src/app/services/serv-mock/serv-movk-api.ser
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-route-cars',
-  templateUrl: './route-cars.component.html',
-  styleUrls: ['./route-cars.component.scss'],
+  selector: 'app-route-drivers',
+  templateUrl: './route-drivers.component.html',
+  styleUrls: ['./route-drivers.component.scss'],
 })
-export class RouteCarsComponent implements OnInit {
-  public cars: any;
+export class RouteDriversComponent implements OnInit {
+  public drivers: any;
 
   constructor(
     private servMock: ServMovkApiService,
@@ -16,20 +16,20 @@ export class RouteCarsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getData('/cars');
+    this.getData('/drivers');
   }
 
   private getData(endpoint: string) {
     this.servMock.getData(endpoint).subscribe((res) => {
-      this.cars = res;
+      this.drivers = res;
     });
   }
 
   public deleteData(id: string, name: string) {
-    if (confirm('Tem certeza que vai deletar o carro ' + name + '?') == true) {
-      this.servMock.deleteData('/cars/', id).subscribe(() => {
-        this.toastr.success('Deleted car!');
-        this.getData('/cars');
+    if (confirm('Tem certeza que vai deletar o piloto ' + name + '?') == true) {
+      this.servMock.deleteData('/drivers/', id).subscribe(() => {
+        this.toastr.success('Deleted driver!');
+        this.getData('/drivers');
       });
     }
   }

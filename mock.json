@@ -59,6 +59,21 @@
       "id": "11",
       "name": "Dome Judd",
       "image": "https://cloud10.todocoleccion.online/scalextric-tecnitoys/tc/2014/03/17/12/42322594.jpg"
+    },
+    {
+      "id": "12",
+      "name": "Peugeot 908 Hdi Fap",
+      "image":"https://http2.mlstatic.com/D_NQ_NP_411211-MLB20486046082_112015-O.jpg"
+    },
+    {
+      "id": "13",
+      "name": "Peugeot 908 Hdi Fap",
+      "image":"https://cloud10.todocoleccion.online/scalextric-tecnitoys/tc/2015/09/15/12/51241799.jpg"
+    },
+    {
+      "id": "14",
+      "name": "Audi R8",
+      "image":"https://fotos.miarroba.com/fo/5eb8/2A5172BDC62850EC2DEA2A50EC2DD1.jpg"
     }
   ],
   "drivers": [
@@ -67,7 +82,14 @@
       "nickname": "BOZZ",
       "country": "br",
       "birth": "1986-11-27",
-      "image": "https://instagram.ffln1-1.fna.fbcdn.net/v/t51.2885-19/274507370_2912125705752946_1387756007581452821_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.ffln1-1.fna.fbcdn.net&_nc_cat=110&_nc_ohc=uqlsicndzD8AX_2Prhm&edm=ALbqBD0BAAAA&ccb=7-5&oh=00_AT_aRLd2k-qsZOFptfzOHqnDJoNnvtkw9wvBHuT3I0E28w&oe=62B28D97&_nc_sid=9a90d6"
+      "image": "https://yt3.ggpht.com/ytc/AKedOLT8UYaPqbaaX61tYAwhfAISv8LGDQ6Y-drlJIbceas=s900-c-k-c0x00ffffff-no-rj"
+    },
+    {
+      "name": "Theo Tourn",
+      "nickname": "theodoryyy",
+      "country": "br",
+      "birth": "2000-03-14",
+      "image": "https://pbs.twimg.com/profile_images/1452497184038006787/QYbjXWOm_400x400.jpg"
     }
   ]
 }
