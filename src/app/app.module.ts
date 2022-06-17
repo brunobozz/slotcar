@@ -18,6 +18,7 @@ import { RouteCarsComponent } from './routes/route-cars/route-cars.component';
 import { RouteHomeComponent } from './routes/route-home/route-home.component';
 import { RouteDriversComponent } from './routes/route-drivers/route-drivers.component';
 import { RouteRaceComponent } from './routes/route-race/route-race.component';
+import { CompQuickLinkComponent } from './components/comp-quick-link/comp-quick-link.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { RouteRaceComponent } from './routes/route-race/route-race.component';
     RouteHomeComponent,
     RouteDriversComponent,
     RouteRaceComponent,
+    CompQuickLinkComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { menu } from './menu';
 
 @Component({
   selector: 'app-route-home',
   templateUrl: './route-home.component.html',
-  styleUrls: ['./route-home.component.scss']
+  styleUrls: ['./route-home.component.scss'],
 })
-export class RouteHomeComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class RouteHomeComponent {
+  public links = menu;
 }

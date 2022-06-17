@@ -1,33 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-route-race',
   templateUrl: './route-race.component.html',
   styleUrls: ['./route-race.component.scss'],
 })
-export class RouteRaceComponent implements OnInit {
+export class RouteRaceComponent {
   public lapsRecord: any = [];
-
   public lap = {
     minute: 0,
     second: 0,
     millisecond: 0,
     totalMilliseconds: 0,
   };
-
   public fastestLap = { ...this.lap };
-
   public cron: any;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 
   public start() {
     this.pause();
     this.cron = setInterval(() => {
       this.timer();
-    }, 10);
+    }, 1);
   }
 
   public reset() {
@@ -42,9 +35,9 @@ export class RouteRaceComponent implements OnInit {
   }
 
   private timer() {
-    this.lap.totalMilliseconds += 10;
+    this.lap.totalMilliseconds += 1;
 
-    if ((this.lap.millisecond += 10) == 1000) {
+    if ((this.lap.millisecond += 1) == 1000) {
       this.lap.millisecond = 0;
       this.lap.second++;
     }
