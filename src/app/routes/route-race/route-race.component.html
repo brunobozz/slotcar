@@ -39,7 +39,9 @@
 
 <div *ngIf="lapsRecord.length != 0" class="card mt-4 bg-success">
   <div class="card-body text-center fs-3 text-white fw-bold">
-    {{ fastestLap.minute }}:{{ fastestLap.second }}.{{ fastestLap.millisecond }}
+    LAP {{ fastestLap.number }} - {{ fastestLap.minute }}:{{
+      fastestLap.second
+    }}.{{ fastestLap.millisecond }}
   </div>
 </div>
 
@@ -47,10 +49,10 @@
   <div class="card-body">
     <div class="list-group list-group-flush">
       <div
-        *ngFor="let lapi of lapsRecord; let i = index"
-        class="list-group-item"
+        *ngFor="let lapi of lapsRecord"
+        class="list-group-item d-flex justify-content-between align-center"
       >
-        <span class="fw-bold">{{ i }} </span>
+        <span class="fw-bold">LAP {{ lapi.number }} </span>
         <span> {{ lapi.minute }}:{{ lapi.second }}.{{ lapi.millisecond }}</span>
       </div>
     </div>

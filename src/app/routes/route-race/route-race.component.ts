@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class RouteRaceComponent {
   public lapsRecord: any = [];
   public lap = {
+    number: 1,
     minute: 0,
     second: 0,
     millisecond: 0,
@@ -49,12 +50,14 @@ export class RouteRaceComponent {
 
   public set() {
     let currentLap = { ...this.lap };
-    this.lapsRecord.push(currentLap);
+    this.lapsRecord.unshift(currentLap);
+    this.lap.number = this.lap.number + 1;
     if (
       this.fastestLap.totalMilliseconds > currentLap.totalMilliseconds ||
       this.fastestLap.totalMilliseconds == 0
-    )
+    ) {
       this.fastestLap = currentLap;
+    }
     this.reset();
     this.start();
   }
