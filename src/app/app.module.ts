@@ -20,6 +20,9 @@ import { RouteDriversComponent } from './routes/route-drivers/route-drivers.comp
 import { RouteRaceComponent } from './routes/route-race/route-race.component';
 import { CompQuickLinkComponent } from './components/comp-quick-link/comp-quick-link.component';
 
+//MODULES
+import { RaceModule } from './modules/race/race.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +52,9 @@ import { CompQuickLinkComponent } from './components/comp-quick-link/comp-quick-
       maxOpened: 2,
       autoDismiss: true,
     }),
+
+    //MODULES
+    RaceModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
