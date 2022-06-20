@@ -1,8 +1,8 @@
 export const menu: any = [
   {
-    route: '/tracks',
-    name: 'Tracks',
-    icon: 'fa-map-o',
+    route: '/cars',
+    name: 'Cars',
+    icon: 'fa-car',
   },
   {
     route: '/drivers',
@@ -10,9 +10,9 @@ export const menu: any = [
     icon: 'fa-id-card-o',
   },
   {
-    route: '/cars',
-    name: 'Cars',
-    icon: 'fa-car',
+    route: '/tracks',
+    name: 'Tracks',
+    icon: 'fa-map-o',
   },
   {
     route: '/race',
