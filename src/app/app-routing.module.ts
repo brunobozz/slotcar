@@ -18,6 +18,11 @@ const routes: Routes = [
       { path: 'cars', component: RouteCarsComponent },
       { path: 'drivers', component: RouteDriversComponent },
       { path: 'tracks', component: RouteTracksComponent },
+      {
+        path: '',
+        redirectTo: 'cars',
+        pathMatch: 'full',
+      },
     ],
   },
   { path: 'race', component: RaceComponent },
