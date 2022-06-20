@@ -37,24 +37,12 @@
   </button>
 </div>
 
-<div *ngIf="lapsRecord.length != 0" class="card mt-4 bg-success">
-  <div class="card-body text-center fs-3 text-white fw-bold">
-    LAP {{ fastestLap.number }} - {{ fastestLap.minute }}:{{
-      fastestLap.second
-    }}.{{ fastestLap.millisecond }}
-  </div>
-</div>
+<app-comp-race-fastest-lap
+  *ngIf="lapsRecord.length != 0"
+  [fastestLap]="fastestLap"
+></app-comp-race-fastest-lap>
 
-<div *ngIf="lapsRecord.length != 0" class="card mt-4">
-  <div class="card-body">
-    <div class="list-group list-group-flush">
-      <div
-        *ngFor="let lapi of lapsRecord"
-        class="list-group-item d-flex justify-content-between align-center"
-      >
-        <span class="fw-bold">LAP {{ lapi.number }} </span>
-        <span> {{ lapi.minute }}:{{ lapi.second }}.{{ lapi.millisecond }}</span>
-      </div>
-    </div>
-  </div>
-</div>
+<app-comp-race-list-lap
+  *ngIf="lapsRecord.length != 0"
+  [lapsRecord]="lapsRecord"
+></app-comp-race-list-lap>

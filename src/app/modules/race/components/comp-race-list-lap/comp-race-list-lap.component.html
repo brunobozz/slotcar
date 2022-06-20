@@ -1,0 +1,13 @@
+<div class="card mt-4">
+  <div class="card-body">
+    <div class="list-group list-group-flush">
+      <div
+        *ngFor="let lap of lapsRecord"
+        class="list-group-item d-flex justify-content-between align-center"
+      >
+        <span class="fw-bold">LAP {{ lap.number }} </span>
+        <span> {{ lap.minute }}:{{ lap.second }}.{{ lap.millisecond }}</span>
+      </div>
+    </div>
+  </div>
+</div>
