@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RaceComponent } from './race.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    RaceComponent
+  ],
   imports: [
     CommonModule
   ]

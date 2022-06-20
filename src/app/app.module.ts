@@ -19,8 +19,6 @@ import { RouteHomeComponent } from './routes/route-home/route-home.component';
 import { RouteDriversComponent } from './routes/route-drivers/route-drivers.component';
 import { RouteRaceComponent } from './routes/route-race/route-race.component';
 import { CompQuickLinkComponent } from './components/comp-quick-link/comp-quick-link.component';
-
-//MODULES
 import { RaceModule } from './modules/race/race.module';
 
 @NgModule({
@@ -53,7 +51,6 @@ import { RaceModule } from './modules/race/race.module';
       autoDismiss: true,
     }),
 
-    //MODULES
     RaceModule,
   ],
   providers: [],
