@@ -1,2 +1,20 @@
-<H1>CARS</H1>
-<p>route-cars works!</p>
+<app-comp-cdt-title title="Cars List" icon="fa-car"></app-comp-cdt-title>
+
+<section class="cars">
+  <div *ngFor="let car of cars" class="card me-4 mb-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <span class="fw-bold">{{ car.name }}</span>
+      <span
+        class="delete-btn text-danger"
+        title="Delete Car"
+        (click)="deleteData(car.id, car.name)"
+      >
+        <i class="fa fa-trash"></i>
+      </span>
+    </div>
+    <div
+      class="car-image"
+      [ngStyle]="{ 'background-image': 'url(' + car.image + ')' }"
+    ></div>
+  </div>
+</section>

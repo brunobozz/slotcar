@@ -10,6 +10,7 @@ import { CompCdtTabComponent } from './components/comp-cdt-tab/comp-cdt-tab.comp
 import { RouteCarsComponent } from './routes/route-cars/route-cars.component';
 import { RouteDriversComponent } from './routes/route-drivers/route-drivers.component';
 import { RouteTracksComponent } from './routes/route-tracks/route-tracks.component';
+import { CompCdtTitleComponent } from './components/comp-cdt-title/comp-cdt-title.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { RouteTracksComponent } from './routes/route-tracks/route-tracks.compone
     RouteCarsComponent,
     RouteDriversComponent,
     RouteTracksComponent,
+    CompCdtTitleComponent,
   ],
   imports: [CommonModule, AppRoutingModule],
 })
