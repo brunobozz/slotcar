@@ -1,13 +1,8 @@
-.section {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .quick-link {
   padding: 20px;
   margin: 0 20px 20px 0;
-  width: 200px;
-  height: 150px;
+  width: 100%;
+  height: 250px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -22,12 +17,12 @@
   }
 
   i {
-    font-size: 36px;
+    font-size: 56px;
     margin-bottom: 10px;
   }
 
   span {
-    font-size: 16px;
+    font-size: 24px;
     text-align: center;
   }
 
@@ -40,8 +35,7 @@
 @media (max-width: 768px) {
   .quick-link {
     padding: 15px;
-    width: 160px;
-    height: 100px;
+    height: 150px;
     i {
       font-size: 26px;
     }
@@ -55,8 +49,6 @@
   .quick-link {
     padding: 10px;
     margin: 0 10px 10px 0;
-    width: 120px;
-    height: 80px;
     i {
       font-size: 18px;
     }
