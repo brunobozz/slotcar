@@ -1,0 +1,8 @@
+<ul class="nav nav-pills nav-fill">
+  <li *ngFor="let tab of links" class="nav-item">
+    <a class="nav-link" aria-current="page" [routerLink]="tab.route">
+      <i class="fa {{ tab.icon }}"></i>
+      <span> {{ tab.name }}</span>
+    </a>
+  </li>
+</ul>

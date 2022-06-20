@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RouteHomeComponent } from './route-home.component';
+import { CompCdtTabComponent } from './comp-cdt-tab.component';
 
-describe('RouteHomeComponent', () => {
-  let component: RouteHomeComponent;
-  let fixture: ComponentFixture<RouteHomeComponent>;
+describe('CompCdtTabComponent', () => {
+  let component: CompCdtTabComponent;
+  let fixture: ComponentFixture<CompCdtTabComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RouteHomeComponent ]
+      declarations: [ CompCdtTabComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RouteHomeComponent);
+    fixture = TestBed.createComponent(CompCdtTabComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

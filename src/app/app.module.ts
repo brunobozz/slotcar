@@ -13,12 +13,7 @@ import { CompMainNavbarComponent } from './components/comp-main-navbar/comp-main
 import { CompMainSidebarComponent } from './components/comp-main-sidebar/comp-main-sidebar.component';
 import { CompThemeSwitcherComponent } from './components/comp-theme-switcher/comp-theme-switcher.component';
 
-//ROUTES
-import { RouteCarsComponent } from './routes/route-cars/route-cars.component';
-import { RouteHomeComponent } from './routes/route-home/route-home.component';
-import { RouteDriversComponent } from './routes/route-drivers/route-drivers.component';
-import { RouteRaceComponent } from './routes/route-race/route-race.component';
-
+//MODULES
 import { RaceModule } from './modules/race/race.module';
 import { HomeModule } from './modules/home/home.module';
 import { CdtModule } from './modules/cdt/cdt.module';
@@ -33,12 +28,6 @@ import { CdtModule } from './modules/cdt/cdt.module';
     CompMainNavbarComponent,
     CompMainFooterComponent,
     CompThemeSwitcherComponent,
-
-    //ROUTES
-    RouteCarsComponent,
-    RouteHomeComponent,
-    RouteDriversComponent,
-    RouteRaceComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +41,7 @@ import { CdtModule } from './modules/cdt/cdt.module';
       autoDismiss: true,
     }),
 
+    //MODULES
     HomeModule,
     CdtModule,
     RaceModule,
