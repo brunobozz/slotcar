@@ -1,1 +1,20 @@
-<app-comp-cdt-title title="Drivers" icon="fa-user"></app-comp-cdt-title>
+<app-comp-cdt-title title="Drivers List" icon="fa-user"></app-comp-cdt-title>
+
+<section class="drivers">
+  <div *ngFor="let driver of drivers" class="card me-4 mb-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <span class="fw-bold">{{ driver.name }}</span>
+      <span
+        class="delete-btn text-danger"
+        title="Delete Driver"
+        (click)="deleteData(driver.id, driver.name)"
+      >
+        <i class="fa fa-trash"></i>
+      </span>
+    </div>
+    <div
+      class="driver-image"
+      [ngStyle]="{ 'background-image': 'url(' + driver.image + ')' }"
+    ></div>
+  </div>
+</section>

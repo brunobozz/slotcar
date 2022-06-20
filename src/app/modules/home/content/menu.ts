@@ -1,16 +1,16 @@
 export const menu: any = [
   {
-    route: '/cars',
+    route: '/cdt/cars',
     name: 'Cars',
     icon: 'fa-car',
   },
   {
-    route: '/drivers',
+    route: '/cdt/drivers',
     name: 'Drivers',
     icon: 'fa-id-card-o',
   },
   {
-    route: '/tracks',
+    route: '/cdt/tracks',
     name: 'Tracks',
     icon: 'fa-map-o',
   },

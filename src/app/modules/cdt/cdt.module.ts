@@ -5,12 +5,12 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 //COMPONENTS
 import { CdtComponent } from './cdt.component';
 import { CompCdtTabComponent } from './components/comp-cdt-tab/comp-cdt-tab.component';
+import { CompCdtTitleComponent } from './components/comp-cdt-title/comp-cdt-title.component';
 
 //ROUTES
 import { RouteCarsComponent } from './routes/route-cars/route-cars.component';
 import { RouteDriversComponent } from './routes/route-drivers/route-drivers.component';
 import { RouteTracksComponent } from './routes/route-tracks/route-tracks.component';
-import { CompCdtTitleComponent } from './components/comp-cdt-title/comp-cdt-title.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +18,12 @@ import { CompCdtTitleComponent } from './components/comp-cdt-title/comp-cdt-titl
 
     //COMPONENTS
     CompCdtTabComponent,
+    CompCdtTitleComponent,
 
     //ROUTES
     RouteCarsComponent,
     RouteDriversComponent,
     RouteTracksComponent,
-    CompCdtTitleComponent,
   ],
   imports: [CommonModule, AppRoutingModule],
 })
