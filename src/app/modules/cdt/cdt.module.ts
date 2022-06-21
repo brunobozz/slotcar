@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
+
+//IMPORTS
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //COMPONENTS
 import { CdtComponent } from './cdt.component';
@@ -29,6 +32,6 @@ import { RouteTracksComponent } from './routes/route-tracks/route-tracks.compone
     RouteDriversComponent,
     RouteTracksComponent,
   ],
-  imports: [CommonModule, AppRoutingModule],
+  imports: [CommonModule, AppRoutingModule, ReactiveFormsModule],
 })
 export class CdtModule {}

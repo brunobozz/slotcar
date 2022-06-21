@@ -13,5 +13,12 @@
 }
 
 .delete-btn {
+  display: none;
   cursor: pointer;
+}
+
+.card:hover {
+  .delete-btn {
+    display: block;
+  }
 }

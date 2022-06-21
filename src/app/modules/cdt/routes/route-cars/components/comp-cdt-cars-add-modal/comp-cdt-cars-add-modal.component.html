@@ -1,38 +1,76 @@
-<div
-  class="modal fade"
-  id="exampleModal"
-  data-bs-backdrop="static"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<form [formGroup]="carForm" (ngSubmit)="submitForm()">
   <div
-    class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down modal-dialog-scrollable"
+    class="modal fade"
+    id="addCarModal"
+    #formModal
+    data-bs-backdrop="static"
+    tabindex="-1"
+    aria-labelledby="addCarModal"
+    aria-hidden="true"
   >
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">ADD CAR</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, esse
-          inventore recusandae, similique rerum, ex tempora accusamus sit vero
-          facere laboriosam optio nobis vel non voluptas quisquam expedita
-          molestiae officiis.
-        </p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+    <div
+      class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down modal-dialog-scrollable"
+    >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addCarModal">
+            <i class="fa fa-plus"></i>
+            <span> ADD CAR</span>
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="name" class="form-label small">Name:</label>
+            <input
+              type="text"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': validField('name') }"
+              placeholder="McLaren Mp4/4"
+              formControlName="name"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="category" class="form-label small">Category:</label>
+            <input
+              type="text"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': validField('category') }"
+              placeholder="GT"
+              formControlName="category"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="image" class="form-label small">Image:</label>
+            <input
+              type="text"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': validField('image') }"
+              placeholder="paste the url from img"
+              formControlName="image"
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-sm btn-success">
+            <i class="fa fa-save"></i>
+            <span> Save</span>
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-danger"
+            data-bs-dismiss="modal"
+          >
+            <i class="fa fa-times"></i>
+            <span> Cancel</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</form>
