@@ -1,24 +1,6 @@
 {
   "cars": [
     {
-      "id": "15",
-      "name": "Audi R8",
-      "image": "https://fotos.miarroba.com/fo/5eb8/2A5172BDC62850EC2DEA2A50EC2DD1.jpg",
-      "type": "LMP"
-    },
-    {
-      "id": "16",
-      "name": "Audi R8",
-      "image": "https://fotos.miarroba.com/fo/5eb8/2A5172BDC62850EC2DEA2A50EC2DD1.jpg",
-      "type": "LMP"
-    },
-    {
-      "id": "17",
-      "name": "Audi R8",
-      "image": "https://fotos.miarroba.com/fo/5eb8/2A5172BDC62850EC2DEA2A50EC2DD1.jpg",
-      "type": "LMP"
-    },
-    {
       "id": "0",
       "name": "Mp4/4 Senna",
       "image": "https://slotracer.online/pit-lane/scx/images/large/scx-64270-01.jpg",

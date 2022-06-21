@@ -1,1 +1,4 @@
-<app-comp-cdt-cars-list [cars]="cars"></app-comp-cdt-cars-list>
+<app-comp-cdt-cars-list
+  [cars]="cars"
+  (deleteCar)="deleteData($event)"
+></app-comp-cdt-cars-list>

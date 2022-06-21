@@ -25,9 +25,11 @@ export class RouteCarsComponent implements OnInit {
     });
   }
 
-  public deleteData(id: string, name: string) {
-    if (confirm('Tem certeza que vai deletar o carro ' + name + '?') == true) {
-      this.servMock.deleteData('/cars/', id).subscribe(() => {
+  public deleteData(car: any) {
+    if (
+      confirm('Tem certeza que vai deletar o carro ' + car.name + '?') == true
+    ) {
+      this.servMock.deleteData('/cars/', car.id).subscribe(() => {
         this.toastr.success('Deleted car!');
         this.getData('/cars');
       });

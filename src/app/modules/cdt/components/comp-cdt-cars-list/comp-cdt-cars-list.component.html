@@ -9,7 +9,11 @@
           class="card-header d-flex justify-content-between align-items-center"
         >
           <span class="fw-bold">{{ car.name }}</span>
-          <span class="delete-btn text-danger" title="Delete Car">
+          <span
+            class="delete-btn text-danger"
+            title="Delete Car"
+            (click)="delete(car)"
+          >
             <i class="fa fa-trash"></i>
           </span>
         </div>

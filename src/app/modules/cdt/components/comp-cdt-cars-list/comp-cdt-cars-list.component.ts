@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-comp-cdt-cars-list',
@@ -7,4 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class CompCdtCarsListComponent {
   @Input() cars: any;
+
+  @Output() deleteCar = new EventEmitter();
+
+  public delete(car: any) {
+    this.deleteCar.emit(car);
+  }
 }
