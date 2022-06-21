@@ -6,6 +6,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { CdtComponent } from './cdt.component';
 import { CompCdtTabComponent } from './components/comp-cdt-tab/comp-cdt-tab.component';
 import { CompCdtTitleComponent } from './components/comp-cdt-title/comp-cdt-title.component';
+import { CompCdtCarsListComponent } from './components/comp-cdt-cars-list/comp-cdt-cars-list.component';
 
 //ROUTES
 import { RouteCarsComponent } from './routes/route-cars/route-cars.component';
@@ -17,8 +18,9 @@ import { RouteTracksComponent } from './routes/route-tracks/route-tracks.compone
     CdtComponent,
 
     //COMPONENTS
-    CompCdtTabComponent,
     CompCdtTitleComponent,
+    CompCdtTabComponent,
+    CompCdtCarsListComponent,
 
     //ROUTES
     RouteCarsComponent,

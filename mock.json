@@ -1,79 +1,112 @@
 {
   "cars": [
     {
+      "id": "15",
+      "name": "Audi R8",
+      "image": "https://fotos.miarroba.com/fo/5eb8/2A5172BDC62850EC2DEA2A50EC2DD1.jpg",
+      "type": "LMP"
+    },
+    {
+      "id": "16",
+      "name": "Audi R8",
+      "image": "https://fotos.miarroba.com/fo/5eb8/2A5172BDC62850EC2DEA2A50EC2DD1.jpg",
+      "type": "LMP"
+    },
+    {
+      "id": "17",
+      "name": "Audi R8",
+      "image": "https://fotos.miarroba.com/fo/5eb8/2A5172BDC62850EC2DEA2A50EC2DD1.jpg",
+      "type": "LMP"
+    },
+    {
       "id": "0",
       "name": "Mp4/4 Senna",
-      "image": "https://slotracer.online/pit-lane/scx/images/large/scx-64270-01.jpg"
+      "image": "https://slotracer.online/pit-lane/scx/images/large/scx-64270-01.jpg",
+      "type": "F1"
     },
     {
       "id": "5",
       "name": "F1 Jordan 1994",
-      "image": "https://http2.mlstatic.com/D_NQ_NP_720348-MLB44286020649_122020-O.jpg"
+      "image": "https://http2.mlstatic.com/D_NQ_NP_720348-MLB44286020649_122020-O.jpg",
+      "type": "F1"
     },
     {
       "id": "1",
       "name": "C4 VTR Rally",
-      "image": "https://cloud10.todocoleccion.online/scalextric-tecnitoys/tc/2014/03/26/22/42512464_101150.jpg"
+      "image": "https://cloud10.todocoleccion.online/scalextric-tecnitoys/tc/2014/03/26/22/42512464_101150.jpg",
+      "type": "Rally"
     },
     {
       "id": "2",
       "name": "Subaru Rally",
-      "image": "http://www.homeracingworld.com/E6side.jpg"
+      "image": "http://www.homeracingworld.com/E6side.jpg",
+      "type": "Rally"
     },
     {
       "id": "3",
       "name": "Ferrari 550 Maranello",
-      "image": "https://i.ebayimg.com/images/g/BHYAAOSwDPhg~enA/s-l500.jpg"
+      "image": "https://i.ebayimg.com/images/g/BHYAAOSwDPhg~enA/s-l500.jpg",
+      "type": "GT"
     },
     {
       "id": "4",
       "name": "Corvette",
-      "image": "https://cloud10.todocoleccion.online/scalextric-tecnitoys/tc/2012/05/17/31800988.jpg?size=720x720"
+      "image": "https://cloud10.todocoleccion.online/scalextric-tecnitoys/tc/2012/05/17/31800988.jpg?size=720x720",
+      "type": "GT"
     },
     {
       "id": "6",
       "name": "Orange DTM Mercedes",
-      "image": "https://www.picclickimg.com/d/l400/pict/304033403062_/SCX-Espagnol-Scalextric-Coffret-AMG-Mercedes-C-Klasse-DTM.jpg"
+      "image": "https://www.picclickimg.com/d/l400/pict/304033403062_/SCX-Espagnol-Scalextric-Coffret-AMG-Mercedes-C-Klasse-DTM.jpg",
+      "type": "DTM"
     },
     {
       "id": "7",
       "name": "Red DTM Merceses",
-      "image": "https://i.ebayimg.com/images/g/Fe8AAOxymcdRiexx/s-l640.jpg"
+      "image": "https://i.ebayimg.com/images/g/Fe8AAOxymcdRiexx/s-l640.jpg",
+      "type": "DTM"
     },
     {
       "id": "8",
       "name": "Porsche 911 Gt3",
-      "image": "http://3.bp.blogspot.com/_qK4eE0KbOoA/R4NcS_B2uTI/AAAAAAAAA2o/vKrNx3Oytu4/s400/b_600_600_0_0__stories_neuheiten_2008_01_porsche997_01.gif"
+      "image": "http://3.bp.blogspot.com/_qK4eE0KbOoA/R4NcS_B2uTI/AAAAAAAAA2o/vKrNx3Oytu4/s400/b_600_600_0_0__stories_neuheiten_2008_01_porsche997_01.gif",
+      "type": "GT"
     },
     {
       "id": "9",
       "name": "AstonMartin DBR9",
-      "image": "http://photos1.blogger.com/blogger/1076/3011/1600/IMG_0342.jpg"
+      "image": "http://photos1.blogger.com/blogger/1076/3011/1600/IMG_0342.jpg",
+      "type": "GT"
     },
     {
       "id": "10",
       "name": "Audi R8",
-      "image": "https://media.paruvendu.fr/image/6170-audi-slot/WB15/2/9/WB152961017_1.jpg"
+      "image": "https://media.paruvendu.fr/image/6170-audi-slot/WB15/2/9/WB152961017_1.jpg",
+      "type": "LMP"
     },
     {
       "id": "11",
       "name": "Dome Judd",
-      "image": "https://cloud10.todocoleccion.online/scalextric-tecnitoys/tc/2014/03/17/12/42322594.jpg"
+      "image": "https://cloud10.todocoleccion.online/scalextric-tecnitoys/tc/2014/03/17/12/42322594.jpg",
+      "type": "LMP"
     },
     {
       "id": "12",
       "name": "Peugeot 908 Hdi Fap",
-      "image": "https://http2.mlstatic.com/D_NQ_NP_411211-MLB20486046082_112015-O.jpg"
+      "image": "https://http2.mlstatic.com/D_NQ_NP_411211-MLB20486046082_112015-O.jpg",
+      "type": "LMP"
     },
     {
       "id": "13",
       "name": "Peugeot 908 Hdi Fap",
-      "image": "https://cloud10.todocoleccion.online/scalextric-tecnitoys/tc/2015/09/15/12/51241799.jpg"
+      "image": "https://cloud10.todocoleccion.online/scalextric-tecnitoys/tc/2015/09/15/12/51241799.jpg",
+      "type": "LMP"
     },
     {
       "id": "14",
       "name": "Audi R8",
-      "image": "https://fotos.miarroba.com/fo/5eb8/2A5172BDC62850EC2DEA2A50EC2DD1.jpg"
+      "image": "https://fotos.miarroba.com/fo/5eb8/2A5172BDC62850EC2DEA2A50EC2DD1.jpg",
+      "type": "LMP"
     }
   ],
   "drivers": [

@@ -1,0 +1,27 @@
+<section class="cars">
+  <div class="row">
+    <div
+      *ngFor="let car of cars"
+      class="col-xs-12 col-md-6 col-lg-4 col-x1-3 col-xx1-2"
+    >
+      <div class="card mb-4">
+        <div
+          class="card-header d-flex justify-content-between align-items-center"
+        >
+          <span class="fw-bold">{{ car.name }}</span>
+          <span class="delete-btn text-danger" title="Delete Car">
+            <i class="fa fa-trash"></i>
+          </span>
+        </div>
+        <div
+          class="car-image"
+          style="height: 200px"
+          [ngStyle]="{ 'background-image': 'url(' + car.image + ')' }"
+        ></div>
+        <div class="card-footer small">
+          <span>Category: {{ car.type }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

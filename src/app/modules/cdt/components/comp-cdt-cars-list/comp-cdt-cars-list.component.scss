@@ -1,0 +1,17 @@
+.cars {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.car-image {
+  width: 100%;
+  height: 200px;
+  background-color: #333;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.delete-btn {
+  cursor: pointer;
+}

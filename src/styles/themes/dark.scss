@@ -46,9 +46,7 @@ $dropdown-link-active-bg: $dropdown-link-hover-bg !default;
 // Navs
 $nav-link-color: rgba($light, 0.2) !default;
 $nav-tabs-border-color: rgba($light, 0.2) !default;
-// $nav-tabs-link-hover-border-color: $nav-tabs-border-color !default;
 $nav-tabs-link-active-color: rgba($light, 0.8) !default;
-// $nav-tabs-link-active-bg: $nav-tabs-border-color !default;
 $nav-tabs-link-active-border-color: $nav-tabs-border-color
   $nav-tabs-border-color $body-bg !default;
 
@@ -70,13 +68,9 @@ $pagination-disabled-bg: transparent !default;
 $pagination-disabled-border-color: rgba($black, 0.6) !default;
 
 // Cards
-$card-border-color: rgba($black, 0.6) !default;
 $card-cap-bg: lighten($gray-800, 10%) !default;
 $card-cap-color: lighten($gray-800, 60%) !default;
 $card-bg: lighten($body-bg, 5%) !default;
-.card {
-  box-shadow: 0 0 10px rgba($black, 0.5);
-}
 
 // Popovers
 $popover-bg: lighten($body-bg, 5%) !default;
