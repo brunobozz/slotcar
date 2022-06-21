@@ -1,4 +1,17 @@
+<div class="d-flex justify-content-end mb-4">
+  <button
+    class="btn btn-sm btn-success"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+  >
+    <i class="fa fa-plus"></i>
+    <span class=""> ADD CAR</span>
+  </button>
+</div>
+
 <app-comp-cdt-cars-list
   [cars]="cars"
   (deleteCar)="deleteData($event)"
 ></app-comp-cdt-cars-list>
+
+<app-comp-cdt-cars-add-modal></app-comp-cdt-cars-add-modal>
