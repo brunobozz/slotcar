@@ -47,6 +47,7 @@ export class CompCdtCarsAddModalComponent {
       this.toastr.success('New car added!');
       this.closeModal.nativeElement.click();
       this.getList.emit();
+      this.carForm.reset();
     });
   }
 }
