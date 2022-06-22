@@ -21,7 +21,7 @@ export class CompCdtCarsAddModalComponent {
   public carForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     category: new FormControl(''),
-    image: new FormControl('', [Validators.required]),
+    image: new FormControl(''),
   });
 
   constructor(

@@ -21,7 +21,10 @@
           class="car-image"
           style="height: 200px"
           [ngStyle]="{ 'background-image': 'url(' + car.image + ')' }"
-        ></div>
+        >
+          <i *ngIf="!car.image" class="fa fa-picture-o fs-2"></i>
+          <span *ngIf="!car.image">NO IMAGE</span>
+        </div>
         <div class="card-footer small">
           <span>Category: {{ car.category }}</span>
         </div>

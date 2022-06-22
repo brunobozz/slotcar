@@ -89,6 +89,12 @@
       "name": "Audi R8",
       "image": "https://fotos.miarroba.com/fo/5eb8/2A5172BDC62850EC2DEA2A50EC2DD1.jpg",
       "category": "LMP"
+    },
+    {
+      "name": "Opel Astr V8",
+      "category": "DTM",
+      "image": "https://www.cocheslot.es/WebRoot/StoreES2/Shops/78138220/5FBB/ED10/97BB/1314/C18F/0A0C/6D0E/63DD/P1310111.JPG",
+      "id": "MkRDbY2"
     }
   ],
   "drivers": [

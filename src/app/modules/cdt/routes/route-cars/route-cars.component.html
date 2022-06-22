@@ -10,7 +10,7 @@
 </div>
 
 <app-comp-cdt-cars-list
-  [cars]="cars"
+  [cars]="cars.reverse()"
   (deleteCar)="deleteData($event)"
 ></app-comp-cdt-cars-list>
 
