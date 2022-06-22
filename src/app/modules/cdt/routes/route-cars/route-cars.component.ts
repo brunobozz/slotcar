@@ -35,4 +35,8 @@ export class RouteCarsComponent implements OnInit {
       });
     }
   }
+
+  public getList() {
+    this.getData('/cars');
+  }
 }

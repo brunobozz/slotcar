@@ -14,4 +14,6 @@
   (deleteCar)="deleteData($event)"
 ></app-comp-cdt-cars-list>
 
-<app-comp-cdt-cars-add-modal></app-comp-cdt-cars-add-modal>
+<app-comp-cdt-cars-add-modal
+  (getList)="getList()"
+></app-comp-cdt-cars-add-modal>
