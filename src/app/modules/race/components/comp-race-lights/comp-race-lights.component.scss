@@ -5,27 +5,41 @@
   background-color: #666;
   background-size: 20%;
   background-image: url("https://us.123rf.com/450wm/elovich/elovich1412/elovich141200670/34784810-black-carbon-pattern-texture.jpg?ver=6");
-
-  height: 100px;
-  width: 600px;
+  max-width: 100%;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border: 5px solid rgba(0, 0, 0, 0.5);
 
   [class*="led"] {
-    width: 50px;
-    height: 50px;
+    margin: 5px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.5);
-    box-shadow: inset 0 0 20px rgba(#000, 1), 0 0 10px rgba(0, 0, 0, 0.8);
+    box-shadow: inset 0 0 20px rgba(#000, 0.7), 0 0 10px rgba(0, 0, 0, 0.8);
   }
   [class*="led"].y {
-    background-color: yellow;
+    background: rgb(248, 246, 92);
+    background: radial-gradient(
+      circle,
+      rgba(255, 254, 187, 1) 0%,
+      rgba(206, 214, 0, 1) 100%
+    );
   }
   [class*="led"].r {
-    background-color: red;
+    background: rgb(248, 70, 70);
+    background: radial-gradient(
+      circle,
+      rgba(255, 120, 120, 1) 0%,
+      rgba(255, 0, 0, 1) 100%
+    );
   }
   [class*="led"].g {
-    background-color: green;
+    background: rgb(126, 255, 94);
+    background: radial-gradient(
+      circle,
+      rgba(201, 255, 187, 1) 0%,
+      rgba(48, 255, 0, 1) 100%
+    );
   }
 }
