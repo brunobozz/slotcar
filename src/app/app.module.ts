@@ -36,7 +36,7 @@ import { CdtModule } from './modules/cdt/cdt.module';
     HttpClientModule,
     ToastrModule.forRoot({
       timeOut: 3000,
-      positionClass: 'toast-top-right',
+      positionClass: 'toast-bottom-right',
       maxOpened: 2,
       autoDismiss: true,
     }),
