@@ -10,28 +10,40 @@
     </div>
   </div>
 </form> -->
+
+<div class="d-flex justify-content-center mb-4">
+  <app-comp-race-lights [lights]="lights"></app-comp-race-lights>
+</div>
+
 <div class="text-center">
   <h1 class="badge fs-1 bg-secondary">
     <!-- Lap Timer: {{ lap.minute }}:{{ lap.second }}.{{ lap.millisecond }} -->
   </h1>
 </div>
 <div class="text-center">
-  <button class="btn btn-success btn-sm me-2" >
+  <button
+    *ngIf="raceStatus != 'releasing' && raceStatus != 'started'"
+    class="btn btn-info btn-sm me-2"
+    (click)="startRace()"
+  >
     <i class="fa fa-play"></i>
     <span> Start</span>
   </button>
 
-  <button class="btn btn-warning btn-sm me-2" >
-    <i class="fa fa-flag"></i>
-    <span> Set</span>
+  <button
+    *ngIf="raceStatus === 'releasing' || raceStatus === 'started'"
+    class="btn btn-info btn-sm me-2"
+    (click)="stopRace()"
+  >
+    <i class="fa fa-square"></i>
+    <span> Stop</span>
   </button>
 
-  <button class="btn btn-info btn-sm me-2">
-    <i class="fa fa-pause"></i>
-    <span> Pause</span>
-  </button>
-
-  <button class="btn btn-danger btn-sm me-2" (click)="reset()">
+  <button
+    *ngIf="raceStatus === 'stopped'"
+    class="btn btn-danger btn-sm me-2"
+    (click)="resetRace()"
+  >
     <i class="fa fa-times"></i>
     <span> Reset</span>
   </button>
