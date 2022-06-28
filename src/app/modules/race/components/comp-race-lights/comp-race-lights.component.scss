@@ -1,0 +1,31 @@
+.lights {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #666;
+  background-size: 20%;
+  background-image: url("https://us.123rf.com/450wm/elovich/elovich1412/elovich141200670/34784810-black-carbon-pattern-texture.jpg?ver=6");
+
+  height: 100px;
+  width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border: 5px solid rgba(0, 0, 0, 0.5);
+
+  [class*="led"] {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 20px rgba(#000, 1), 0 0 10px rgba(0, 0, 0, 0.8);
+  }
+  [class*="led"].y {
+    background-color: yellow;
+  }
+  [class*="led"].r {
+    background-color: red;
+  }
+  [class*="led"].g {
+    background-color: green;
+  }
+}

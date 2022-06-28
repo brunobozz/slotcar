@@ -10,6 +10,7 @@ import { RaceComponent } from './race.component';
 import { CompRaceLapTimerComponent } from './components/comp-race-lap-timer/comp-race-lap-timer.component';
 import { CompRaceListLapComponent } from './components/comp-race-list-lap/comp-race-list-lap.component';
 import { CompRaceFastestLapComponent } from './components/comp-race-fastest-lap/comp-race-fastest-lap.component';
+import { CompRaceLightsComponent } from './components/comp-race-lights/comp-race-lights.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CompRaceFastestLapComponent } from './components/comp-race-fastest-lap/
     CompRaceLapTimerComponent,
     CompRaceListLapComponent,
     CompRaceFastestLapComponent,
+    CompRaceLightsComponent,
   ],
   imports: [CommonModule, NgxMaskModule.forRoot()],
 })
