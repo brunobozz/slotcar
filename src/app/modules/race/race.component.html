@@ -54,7 +54,17 @@
   [fastestLap]="fastestLap"
 ></app-comp-race-fastest-lap> -->
 
-<app-comp-race-list-lap
-  *ngIf="lapsP1.length != 0"
-  [lapsList]="lapsP1"
-></app-comp-race-list-lap>
+<div class="row">
+  <div class="col">
+    <app-comp-race-list-lap
+      *ngIf="lapsP1.length != 0"
+      [lapsList]="lapsP1"
+    ></app-comp-race-list-lap>
+  </div>
+  <div class="col">
+    <app-comp-race-list-lap
+      *ngIf="lapsP2.length != 0"
+      [lapsList]="lapsP2"
+    ></app-comp-race-list-lap>
+  </div>
+</div>
