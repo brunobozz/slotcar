@@ -20,10 +20,22 @@ $purple: #6f42c1 !default;
 $pink: #e83e8c !default;
 $red: #ee5f5b !default;
 $orange: #fd7e14 !default;
-$yellow: #f89406 !default;
+$yellow: #e0dd29 !default;
 $green: #62c462 !default;
 $teal: #20c997 !default;
 $cyan: #5bc0de !default;
 
-$primary: $red-race;
-$secondary: $orange;
+$theme-colors: (
+  "primary": $red-race,
+  "secondary": $orange,
+  "success": $green,
+  "danger": $red,
+  "info": $cyan,
+  "warning": $yellow,
+);
+
+$custom-colors: (
+  "purple": $purple,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
