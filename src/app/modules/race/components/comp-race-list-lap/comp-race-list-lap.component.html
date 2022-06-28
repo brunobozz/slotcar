@@ -2,11 +2,15 @@
   <div class="card-body">
     <div class="list-group list-group-flush">
       <div
-        *ngFor="let lap of lapsRecord"
+        *ngFor="let lap of lapsList.reverse(); let i = index"
         class="list-group-item d-flex justify-content-between align-center"
+        [ngClass]="{
+          'bg-danger': worstLap == lap,
+          'bg-purple': bestLap == lap
+        }"
       >
-        <span class="fw-bold">LAP {{ lap.number }} </span>
-        <span> {{ lap.minute }}:{{ lap.second }}.{{ lap.millisecond }}</span>
+        <span>LAP {{ lapsList.length - i }}</span>
+        <span class="fw-bold">{{ lap | time }}</span>
       </div>
     </div>
   </div>

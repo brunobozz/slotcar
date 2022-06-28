@@ -1,64 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ServSocketioService } from 'src/app/services/serv-socketio/serv-socketio.service';
 
 @Component({
   selector: 'app-race',
   templateUrl: './race.component.html',
   styleUrls: ['./race.component.scss'],
 })
-export class RaceComponent {
-  public lapsRecord: any = [];
-  public lap = {
-    number: 1,
-    minute: 0,
-    second: 0,
-    millisecond: 0,
-    totalMilliseconds: 0,
-  };
-  public fastestLap = { ...this.lap };
-  public cron: any;
+export class RaceComponent implements OnInit {
+  public lapsP1: any = [];
+  public lapsP2: any = [];
+  public firstLap = true;
 
-  public start() {
-    this.pause();
-    this.cron = setInterval(() => {
-      this.timer();
-    }, 1);
+  constructor(private socketIo: ServSocketioService) {}
+
+  ngOnInit(): void {
+    this.listenLap();
+  }
+
+  private listenLap() {
+    this.socketIo.listen().subscribe((res: any) => {
+      let theLap = res.split('\r');
+      theLap = theLap[0].split('-');
+      if (!this.firstLap) {
+        if (theLap[0] === 'P1') {
+          this.lapsP1.push(theLap[1]);
+        } else if (theLap[0] === 'P2') {
+          this.lapsP2.push(+theLap[1]);
+        }
+      }
+      this.firstLap = false;
+    });
   }
 
   public reset() {
-    this.lap.minute = 0;
-    this.lap.second = 0;
-    this.lap.millisecond = 0;
-    this.lap.totalMilliseconds = 0;
-  }
-
-  public pause() {
-    clearInterval(this.cron);
-  }
-
-  private timer() {
-    this.lap.totalMilliseconds += 1;
-
-    if ((this.lap.millisecond += 1) == 1000) {
-      this.lap.millisecond = 0;
-      this.lap.second++;
-    }
-    if (this.lap.second == 60) {
-      this.lap.second = 0;
-      this.lap.minute++;
-    }
-  }
-
-  public set() {
-    let currentLap = { ...this.lap };
-    this.lapsRecord.unshift(currentLap);
-    this.lap.number = this.lap.number + 1;
-    if (
-      this.fastestLap.totalMilliseconds > currentLap.totalMilliseconds ||
-      this.fastestLap.totalMilliseconds == 0
-    ) {
-      this.fastestLap = currentLap;
-    }
-    this.reset();
-    this.start();
+    this.firstLap = true;
+    this.lapsP1 = [];
+    this.lapsP2 = [];
   }
 }
