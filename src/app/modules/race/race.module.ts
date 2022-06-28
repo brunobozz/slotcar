@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxMaskModule } from 'ngx-mask';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //PIPES
 import { TimePipe } from 'src/app/pipes/time.pipe';
@@ -11,6 +12,9 @@ import { CompRaceLapTimerComponent } from './components/comp-race-lap-timer/comp
 import { CompRaceListLapComponent } from './components/comp-race-list-lap/comp-race-list-lap.component';
 import { CompRaceFastestLapComponent } from './components/comp-race-fastest-lap/comp-race-fastest-lap.component';
 import { CompRaceLightsComponent } from './components/comp-race-lights/comp-race-lights.component';
+import { CompRacePlayerComponent } from './components/comp-race-player/comp-race-player.component';
+import { CompRaceNavbarComponent } from './components/comp-race-navbar/comp-race-navbar.component';
+import { CompRaceSelectPlayerModalComponent } from './components/comp-race-select-player-modal/comp-race-select-player-modal.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,10 @@ import { CompRaceLightsComponent } from './components/comp-race-lights/comp-race
     CompRaceListLapComponent,
     CompRaceFastestLapComponent,
     CompRaceLightsComponent,
+    CompRacePlayerComponent,
+    CompRaceNavbarComponent,
+    CompRaceSelectPlayerModalComponent,
   ],
-  imports: [CommonModule, NgxMaskModule.forRoot()],
+  imports: [CommonModule, NgxMaskModule.forRoot(), ReactiveFormsModule],
 })
 export class RaceModule {}

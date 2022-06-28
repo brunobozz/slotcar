@@ -1,17 +1,18 @@
 <div class="card mt-4">
-  <div class="card-body">
-    <div class="list-group list-group-flush">
-      <div
-        *ngFor="let lap of lapsList.reverse(); let i = index"
-        class="list-group-item d-flex justify-content-between align-center"
-        [ngClass]="{
-          'bg-danger': worstLap == lap,
-          'bg-purple': bestLap == lap
-        }"
-      >
-        <span>LAP {{ lapsList.length - i }}</span>
-        <span class="fw-bold">{{ lap | time }}</span>
+  <div class="list-group list-group-flush">
+    <div
+      *ngFor="let lap of lapsList.reverse(); let i = index"
+      class="list-group-item d-flex justify-content-between align-center"
+      [ngClass]="{
+        'bg-danger': worstLap == lap,
+        'bg-purple': bestLap == lap
+      }"
+    >
+      <div class="d-flex">
+        <span class="d-none d-sm-block">LAP&nbsp;</span>
+        <span>{{ lapsList.length - i }}</span>
       </div>
+      <span class="fw-bold">{{ lap | time }}</span>
     </div>
   </div>
 </div>

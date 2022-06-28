@@ -1,70 +1,61 @@
-<!-- <form>
-  <div class="row">
-    <div class="col">
-      <select class="form-select">
-        <option selected>Select track</option>
-        <option *ngFor="let track of tracks" [value]="track.id">
-          {{ track.name }}
-        </option>
-      </select>
-    </div>
-  </div>
-</form> -->
-
-<div class="d-flex justify-content-center mb-4">
+<!-- <div class="d-flex justify-content-center mb-4">
   <app-comp-race-lights [lights]="lights"></app-comp-race-lights>
-</div>
+</div> -->
 
-<div class="text-center">
-  <h1 class="badge fs-1 bg-secondary">
-    <!-- Lap Timer: {{ lap.minute }}:{{ lap.second }}.{{ lap.millisecond }} -->
-  </h1>
-</div>
-<div class="text-center">
-  <button
-    *ngIf="raceStatus != 'releasing' && raceStatus != 'started'"
-    class="btn btn-info btn-sm me-2"
-    (click)="startRace()"
-  >
-    <i class="fa fa-play"></i>
-    <span> Start</span>
-  </button>
+<!-- <app-comp-race-navbar></app-comp-race-navbar> -->
 
-  <button
-    *ngIf="raceStatus === 'releasing' || raceStatus === 'started'"
-    class="btn btn-info btn-sm me-2"
-    (click)="stopRace()"
-  >
-    <i class="fa fa-square"></i>
-    <span> Stop</span>
-  </button>
-
-  <button
-    *ngIf="raceStatus === 'stopped'"
-    class="btn btn-danger btn-sm me-2"
-    (click)="resetRace()"
-  >
-    <i class="fa fa-times"></i>
-    <span> Reset</span>
-  </button>
-</div>
-
-<!-- <app-comp-race-fastest-lap
-  *ngIf="lapsRecord.length != 0"
-  [fastestLap]="fastestLap"
-></app-comp-race-fastest-lap> -->
-
-<div class="row">
+<div class="row mb-4">
   <div class="col">
+    <div class="d-grid">
+      <button
+        *ngIf="!P1.driver"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#selectPlayerModal"
+        (click)="playerSelected = 'P1'"
+      >
+        SELECT P1
+      </button>
+    </div>
+
+    <app-comp-race-player
+      *ngIf="P1.driver"
+      [driver]="P1.driver"
+      [car]="P1.car"
+    ></app-comp-race-player>
+
     <app-comp-race-list-lap
-      *ngIf="lapsP1.length != 0"
-      [lapsList]="lapsP1"
+      *ngIf="P1.laps.length != 0"
+      [lapsList]="P1.laps"
     ></app-comp-race-list-lap>
   </div>
   <div class="col">
+    <div class="d-grid">
+      <button
+        *ngIf="!P2.driver"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#selectPlayerModal"
+        (click)="playerSelected = 'P2'"
+      >
+        SELECT P2
+      </button>
+    </div>
+
+    <app-comp-race-player
+      *ngIf="P2.driver"
+      [driver]="P2.driver"
+      [car]="P2.car"
+    ></app-comp-race-player>
+
     <app-comp-race-list-lap
-      *ngIf="lapsP2.length != 0"
-      [lapsList]="lapsP2"
+      *ngIf="P2.laps.length != 0"
+      [lapsList]="P2.laps"
     ></app-comp-race-list-lap>
   </div>
 </div>
+
+<app-comp-race-select-player-modal
+  [playerSelected]="playerSelected"
+  (setPlayer)="setPlayer($event)"
+></app-comp-race-select-player-modal>

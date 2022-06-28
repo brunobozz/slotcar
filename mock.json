@@ -99,13 +99,15 @@
   ],
   "drivers": [
     {
+      "id": 0,
       "name": "Bruno Bozzetti",
       "nickname": "BOZZ",
       "country": "br",
       "birth": "1986-11-27",
-      "image": "https://yt3.ggpht.com/ytc/AKedOLT8UYaPqbaaX61tYAwhfAISv8LGDQ6Y-drlJIbceas=s900-c-k-c0x00ffffff-no-rj"
+      "image": "https://static.wixstatic.com/media/4e9c78_a4df3046dbc940b4a6c6c19f87c2b358~mv2.png/v1/fill/w_316,h_338,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/58c98d7b-f1e3-4faa-a1fd-106bb5f0fdf1.png"
     },
     {
+      "id": 1,
       "name": "Theo Tourn",
       "nickname": "theodoryyy",
       "country": "br",
@@ -121,7 +123,7 @@
       "size": 20
     },
     {
-      "id": "1",
+      "id": 1,
       "name": "Monza",
       "image": "https://chocolate.co.ao/wp-content/uploads/2022/05/9ba24238e6d6434b3bbb.jpg",
       "size": 24

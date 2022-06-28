@@ -1,0 +1,68 @@
+<div
+  class="modal fade"
+  id="selectPlayerModal"
+  data-bs-backdrop="static"
+  tabindex="-1"
+  aria-labelledby="addCarModal"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down modal-dialog-scrollable"
+  >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addCarModal">
+          <i class="fa fa-user"></i>
+          <span> SELECT {{ playerSelected }}</span>
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="playerForm">
+          <div class="mb-3">
+            <label for="driver" class="form-label small">Driver:</label>
+            <select
+              class="form-select"
+              formControlName="driver"
+              [ngClass]="{ 'is-invalid': validField('driver') }"
+            >
+              <option *ngFor="let driver of driversList" [value]="driver.id">
+                {{ driver.name }}
+              </option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="car" class="form-label small">Car:</label>
+            <select
+              class="form-select"
+              formControlName="car"
+              [ngClass]="{ 'is-invalid': validField('car') }"
+            >
+              <option *ngFor="let car of carsList" [value]="car.id">
+                {{ car.name }}
+              </option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm btn-success" (click)="submitForm()">
+          <i class="fa fa-check"></i>
+        </button>
+        <button
+          #closeModal
+          type="button"
+          class="btn btn-sm btn-danger"
+          data-bs-dismiss="modal"
+        >
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+.player {
+  height: 100px;
+  width: 100%;
+
+  justify-content: space-between;
+  align-items: center;
+
+  &-image {
+    height: 100px;
+    width: 100px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  &-name,
+  &-car {
+    text-align: right;
+    font-size: 1.2rem;
+  }
+
+  &-car {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .player {
+    height: 50px;
+
+    &-image {
+      height: 60px;
+      width: 60px;
+    }
+
+    &-name {
+      font-size: 0.8rem;
+    }
+
+    &-car {
+      font-size: 0.6rem;
+    }
+  }
+}
