@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ServMovkApiService {
-  private API_PREFIX = 'http://localhost:3000';
+  private API_PREFIX = 'http://localhost:3001';
 
   constructor(private http: HttpClient) {}
 
