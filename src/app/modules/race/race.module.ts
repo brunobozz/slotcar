@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgxMaskModule } from 'ngx-mask';
+
+//PIPES
+import { TimePipe } from 'src/app/pipes/time.pipe';
 
 //COMPONENTS
 import { RaceComponent } from './race.component';
@@ -9,12 +13,15 @@ import { CompRaceFastestLapComponent } from './components/comp-race-fastest-lap/
 
 @NgModule({
   declarations: [
+    //PIPES
+    TimePipe,
+
     //COMPONENTS
     RaceComponent,
     CompRaceLapTimerComponent,
     CompRaceListLapComponent,
     CompRaceFastestLapComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, NgxMaskModule.forRoot()],
 })
 export class RaceModule {}
