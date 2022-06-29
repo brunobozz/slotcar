@@ -1,53 +1,30 @@
 <!-- <div class="d-flex justify-content-center mb-4">
   <app-comp-race-lights [lights]="lights"></app-comp-race-lights>
-</div> -->
-
-<!-- <app-comp-race-navbar></app-comp-race-navbar> -->
+</div>
+-->
+<div class="mb-4">
+  <app-comp-race-navbar></app-comp-race-navbar>
+</div>
 
 <div class="row mb-4">
   <div class="col">
-    <div class="d-grid">
-      <button
-        *ngIf="!P1.driver"
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#selectPlayerModal"
-        (click)="playerSelected = 'P1'"
-      >
-        SELECT P1
-      </button>
-    </div>
-
     <app-comp-race-player
-      *ngIf="P1.driver"
       [driver]="P1.driver"
       [car]="P1.car"
+      (click)="playerSelected = 'P1'"
     ></app-comp-race-player>
-
     <app-comp-race-list-lap
       *ngIf="P1.laps.length != 0"
       [lapsList]="P1.laps"
     ></app-comp-race-list-lap>
   </div>
-  <div class="col">
-    <div class="d-grid">
-      <button
-        *ngIf="!P2.driver"
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#selectPlayerModal"
-        (click)="playerSelected = 'P2'"
-      >
-        SELECT P2
-      </button>
-    </div>
 
+  <div class="col">
     <app-comp-race-player
-      *ngIf="P2.driver"
       [driver]="P2.driver"
       [car]="P2.car"
+      (click)="playerSelected = 'P2'"
     ></app-comp-race-player>
-
     <app-comp-race-list-lap
       *ngIf="P2.laps.length != 0"
       [lapsList]="P2.laps"

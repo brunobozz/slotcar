@@ -113,6 +113,14 @@
       "country": "br",
       "birth": "2000-03-14",
       "image": "https://pbs.twimg.com/profile_images/1452497184038006787/QYbjXWOm_400x400.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Gabriel Veit",
+      "nickname": "Gabi",
+      "country": "br",
+      "birth": "1993-08-15",
+      "image": "https://media-exp1.licdn.com/dms/image/C4D03AQGY0dsRlPKXag/profile-displayphoto-shrink_200_200/0/1649156766161?e=1660176000&v=beta&t=fZ4ZmPphhTq2xXaaUfHVFkkMg2Hws4IWwNCtsBpXz18"
     }
   ],
   "tracks": [

@@ -35,6 +35,7 @@ export class RaceComponent implements OnInit {
 
   ngOnInit(): void {
     this.listenLap();
+    this.getLocalStorage();
   }
 
   //seleciona player
@@ -42,19 +43,30 @@ export class RaceComponent implements OnInit {
     this.servApi.getData('/drivers/' + event.driver).subscribe((res: any) => {
       if (event.player == 'P1') {
         this.P1.driver = res;
+        localStorage.setItem('P1 driver', JSON.stringify(res));
       }
       if (event.player == 'P2') {
         this.P2.driver = res;
+        localStorage.setItem('P2 driver', JSON.stringify(res));
       }
     });
     this.servApi.getData('/cars/' + event.car).subscribe((res: any) => {
       if (event.player == 'P1') {
         this.P1.car = res;
+        localStorage.setItem('P1 car', JSON.stringify(res));
       }
       if (event.player == 'P2') {
         this.P2.car = res;
+        localStorage.setItem('P2 car', JSON.stringify(res));
       }
     });
+  }
+
+  private getLocalStorage() {
+    this.P1.driver = JSON.parse(localStorage.getItem('P1 driver') || '{}');
+    this.P1.car = JSON.parse(localStorage.getItem('P1 car') || '{}');
+    this.P2.driver = JSON.parse(localStorage.getItem('P2 driver') || '{}');
+    this.P2.car = JSON.parse(localStorage.getItem('P2 car') || '{}');
   }
 
   // escuta a volta marcada

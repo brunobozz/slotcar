@@ -25,7 +25,7 @@ export class CompRaceSelectPlayerModalComponent implements OnInit {
   public carsList: any;
 
   public playerForm = new FormGroup({
-    driver: new FormControl('', [Validators.required]),
+    driver: new FormControl(''),
     car: new FormControl(''),
   });
 
@@ -61,6 +61,7 @@ export class CompRaceSelectPlayerModalComponent implements OnInit {
       };
       this.setPlayer.emit(items);
       this.closeModal.nativeElement.click();
+      this.playerForm.reset();
       this.toastr.success(this.playerSelected + ' selected!');
     } else {
       this.toastr.error('Complete all fields!');
