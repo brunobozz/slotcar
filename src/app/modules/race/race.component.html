@@ -13,25 +13,25 @@
 <div class="row mb-4">
   <div class="col">
     <app-comp-race-player
-      [driver]="P1.driver"
-      [car]="P1.car"
+      [driver]="race.P1.driver"
+      [car]="race.P1.car"
       (click)="playerSelected = 'P1'"
     ></app-comp-race-player>
     <app-comp-race-list-lap
-      *ngIf="P1.laps.length != 0"
-      [lapsList]="P1.laps"
+      *ngIf="race.P1.laps.length != 0"
+      [lapsList]="race.P1.laps"
     ></app-comp-race-list-lap>
   </div>
 
   <div *ngIf="race.config.players == 2" class="col">
     <app-comp-race-player
-      [driver]="P2.driver"
-      [car]="P2.car"
+      [driver]="race.P2.driver"
+      [car]="race.P2.car"
       (click)="playerSelected = 'P2'"
     ></app-comp-race-player>
     <app-comp-race-list-lap
-      *ngIf="P2.laps.length != 0"
-      [lapsList]="P2.laps"
+      *ngIf="race.P2.laps.length != 0"
+      [lapsList]="race.P2.laps"
     ></app-comp-race-list-lap>
   </div>
 </div>

@@ -10,35 +10,28 @@ import { ServSocketioService } from 'src/app/services/serv-socketio/serv-socketi
   styleUrls: ['./race.component.scss'],
 })
 export class RaceComponent implements OnInit {
-  public race = {
+  public race: any = {
     config: {
       players: 2,
       laps: 10,
     },
+    status: 'reseted',
     track: null,
     P1: {
+      firstLap: true,
       driver: null,
       car: null,
+      laps: [],
     },
     P2: {
+      firstLap: true,
       driver: null,
       car: null,
+      laps: [],
     },
   };
-  public P1: any = {
-    driver: null,
-    car: null,
-    laps: [],
-  };
-  public P2: any = {
-    driver: null,
-    car: null,
-    laps: [],
-  };
+
   public playerSelected!: string;
-  public firstLapP1 = true;
-  public firstLapP2 = true;
-  public raceStatus = 'reseted';
   public lights: any = [];
 
   constructor(
@@ -57,31 +50,31 @@ export class RaceComponent implements OnInit {
   public setPlayer(event: any) {
     this.servApi.getData('/drivers/' + event.driver).subscribe((res: any) => {
       if (event.player == 'P1') {
-        this.P1.driver = res;
+        this.race.P1.driver = res;
         localStorage.setItem('P1 driver', JSON.stringify(res));
       }
       if (event.player == 'P2') {
-        this.P2.driver = res;
+        this.race.P2.driver = res;
         localStorage.setItem('P2 driver', JSON.stringify(res));
       }
     });
     this.servApi.getData('/cars/' + event.car).subscribe((res: any) => {
       if (event.player == 'P1') {
-        this.P1.car = res;
+        this.race.P1.car = res;
         localStorage.setItem('P1 car', JSON.stringify(res));
       }
       if (event.player == 'P2') {
-        this.P2.car = res;
+        this.race.P2.car = res;
         localStorage.setItem('P2 car', JSON.stringify(res));
       }
     });
   }
 
   private getLocalStorage() {
-    this.P1.driver = JSON.parse(localStorage.getItem('P1 driver') || '{}');
-    this.P1.car = JSON.parse(localStorage.getItem('P1 car') || '{}');
-    this.P2.driver = JSON.parse(localStorage.getItem('P2 driver') || '{}');
-    this.P2.car = JSON.parse(localStorage.getItem('P2 car') || '{}');
+    this.race.P1.driver = JSON.parse(localStorage.getItem('P1 driver') || '{}');
+    this.race.P1.car = JSON.parse(localStorage.getItem('P1 car') || '{}');
+    this.race.P2.driver = JSON.parse(localStorage.getItem('P2 driver') || '{}');
+    this.race.P2.car = JSON.parse(localStorage.getItem('P2 car') || '{}');
   }
 
   public changeNumberPlayers() {
@@ -105,22 +98,22 @@ export class RaceComponent implements OnInit {
   private recordLap(thisLap: any) {
     // se for P1
     if (thisLap[0] === 'P1') {
-      if (!this.firstLapP1) {
-        this.P1.laps.push(thisLap[1]);
+      if (!this.race.P1.firstLap) {
+        this.race.P1.laps.push(thisLap[1]);
       }
-      this.firstLapP1 = false;
+      this.race.P1.firstLap = false;
     }
     // se for P2
     if (thisLap[0] === 'P2') {
-      if (!this.firstLapP2) {
-        this.P2.laps.push(thisLap[1]);
+      if (!this.race.P2.firstLap) {
+        this.race.P2.laps.push(thisLap[1]);
       }
-      this.firstLapP2 = false;
+      this.race.P2.firstLap = false;
     }
   }
 
   async startRace() {
-    this.raceStatus = 'releasing';
+    this.race.status = 'releasing';
     // luzes vermelhas
     for (let i = 0; i < 5; i++) {
       await this.functions.delay(1000);
@@ -130,21 +123,21 @@ export class RaceComponent implements OnInit {
     let randomTime = Math.floor(Math.random() * (6000 - 1000 + 1)) + 1000;
     await this.functions.delay(randomTime);
     this.lights = ['g', 'g', 'g', 'g', 'g'];
-    this.raceStatus = 'started';
+    this.race.status = 'started';
   }
 
   public stopRace() {
-    this.raceStatus = 'stopped';
+    this.race.status = 'stopped';
   }
 
   public resetRace() {
     if (confirm('Tem certeza que quer resetar a corrida?') == true) {
-      this.raceStatus = 'reseted';
+      this.race.status = 'reseted';
       this.toastr.info('Corrida resetada');
-      this.firstLapP1 = true;
-      this.firstLapP2 = true;
-      this.P1.laps = [];
-      this.P2.laps = [];
+      this.race.P1.firstLap = true;
+      this.race.P2.firstLap = true;
+      this.race.P1.laps = [];
+      this.race.P2.laps = [];
       this.lights = [];
     }
   }
