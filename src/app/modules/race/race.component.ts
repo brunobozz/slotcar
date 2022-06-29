@@ -10,6 +10,21 @@ import { ServSocketioService } from 'src/app/services/serv-socketio/serv-socketi
   styleUrls: ['./race.component.scss'],
 })
 export class RaceComponent implements OnInit {
+  public race = {
+    config: {
+      players: 2,
+      laps: 10,
+    },
+    track: null,
+    P1: {
+      driver: null,
+      car: null,
+    },
+    P2: {
+      driver: null,
+      car: null,
+    },
+  };
   public P1: any = {
     driver: null,
     car: null,
@@ -67,6 +82,14 @@ export class RaceComponent implements OnInit {
     this.P1.car = JSON.parse(localStorage.getItem('P1 car') || '{}');
     this.P2.driver = JSON.parse(localStorage.getItem('P2 driver') || '{}');
     this.P2.car = JSON.parse(localStorage.getItem('P2 car') || '{}');
+  }
+
+  public changeNumberPlayers() {
+    if (this.race.config.players == 1) {
+      this.race.config.players = 2;
+    } else {
+      this.race.config.players = 1;
+    }
   }
 
   // escuta a volta marcada

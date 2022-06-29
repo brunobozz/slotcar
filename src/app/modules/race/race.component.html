@@ -3,7 +3,11 @@
 </div>
 -->
 <div class="mb-4">
-  <app-comp-race-navbar></app-comp-race-navbar>
+  <app-comp-race-navbar
+    [race]="race"
+    (resetLaps)="resetRace()"
+    (numberPlayers)="changeNumberPlayers()"
+  ></app-comp-race-navbar>
 </div>
 
 <div class="row mb-4">
@@ -19,7 +23,7 @@
     ></app-comp-race-list-lap>
   </div>
 
-  <div class="col">
+  <div *ngIf="race.config.players == 2" class="col">
     <app-comp-race-player
       [driver]="P2.driver"
       [car]="P2.car"
