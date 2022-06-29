@@ -25,8 +25,8 @@ export class CompRaceSelectPlayerModalComponent implements OnInit {
   public carsList: any;
 
   public playerForm = new FormGroup({
-    driver: new FormControl(''),
-    car: new FormControl(''),
+    driver: new FormControl('', [Validators.required]),
+    car: new FormControl('', [Validators.required]),
   });
 
   constructor(

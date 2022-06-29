@@ -16,7 +16,7 @@ export class RaceComponent implements OnInit {
       laps: 10,
     },
     status: 'reseted',
-    track: null,
+    track: '',
     P1: {
       firstLap: true,
       driver: null,
@@ -25,8 +25,8 @@ export class RaceComponent implements OnInit {
     },
     P2: {
       firstLap: true,
-      driver: null,
-      car: null,
+      driver: {},
+      car: {},
       laps: [],
     },
   };

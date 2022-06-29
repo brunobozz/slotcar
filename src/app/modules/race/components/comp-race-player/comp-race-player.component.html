@@ -4,11 +4,19 @@
   data-bs-target="#selectPlayerModal"
 >
   <div
+    *ngIf="!player.driver.name"
+    class="d-flex justify-content-center align-items-center"
+    style="width: 100%"
+  >
+    <span>SELECT PLAYER</span>
+  </div>
+  <div
+    *ngIf="player.driver.name"
     class="card-image"
-    style="background-image:url('{{ driver.image }}') ;"
+    style="background-image:url('{{ player.driver.image }}') ;"
   ></div>
-  <div class="d-flex flex-column align-items-end">
-    <span class="card-name">{{ driver.name }}</span>
-    <span class="card-car">{{ car.name }}</span>
+  <div *ngIf="player.driver.name" class="d-flex flex-column align-items-end">
+    <span class="card-name">{{ player.driver.name }}</span>
+    <span class="card-car">{{ player.car.name }}</span>
   </div>
 </div>

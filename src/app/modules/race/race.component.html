@@ -13,8 +13,7 @@
 <div class="row mb-4">
   <div class="col">
     <app-comp-race-player
-      [driver]="race.P1.driver"
-      [car]="race.P1.car"
+      [player]="race.P1"
       (click)="playerSelected = 'P1'"
     ></app-comp-race-player>
     <app-comp-race-list-lap
@@ -25,8 +24,7 @@
 
   <div *ngIf="race.config.players == 2" class="col">
     <app-comp-race-player
-      [driver]="race.P2.driver"
-      [car]="race.P2.car"
+      [player]="race.P2"
       (click)="playerSelected = 'P2'"
     ></app-comp-race-player>
     <app-comp-race-list-lap

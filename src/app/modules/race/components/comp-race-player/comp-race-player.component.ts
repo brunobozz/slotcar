@@ -6,6 +6,5 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./comp-race-player.component.scss'],
 })
 export class CompRacePlayerComponent {
-  @Input() driver: any;
-  @Input() car: any;
+  @Input() player: any;
 }

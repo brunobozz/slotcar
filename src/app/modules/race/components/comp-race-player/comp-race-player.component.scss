@@ -4,7 +4,6 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  padding-right: 20px;
 
   &:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -27,6 +26,7 @@
   &-car {
     text-align: right;
     font-size: 1.2rem;
+    margin-right: 20px;
   }
 
   &-car {
