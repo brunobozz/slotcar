@@ -1,7 +1,6 @@
 .card {
-  height: 100px;
   width: 100%;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
   cursor: pointer;
 
@@ -9,47 +8,103 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   }
 
-  &-image {
+  &-image-driver,
+  &-image-car {
     height: 100px;
-    width: 100px;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
   }
 
-  &-name,
-  &-car {
+  &-image-driver {
+    width: 100px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+
+  &-image-car {
+    width: 200px;
+  }
+
+  &-text {
     text-align: right;
-    font-size: 1.2rem;
-    margin-right: 20px;
-  }
+    margin: 20px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    margin-left: auto;
 
-  &-car {
-    font-size: 0.8rem;
+    &-driver {
+      font-size: 1.4rem;
+    }
+
+    &-car {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .card {
+    &-image-car {
+      width: 100px;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+    flex-wrap: wrap;
+
+    &-image-car {
+      height: 100px;
+      width: 65%;
+    }
+    &-image-driver {
+      height: 100px;
+      width: 35%;
+    }
+
+    &-text {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+      margin: 10px;
+
+      &-name {
+        font-size: 1rem;
+      }
+
+      &-car {
+        font-size: 0.8rem;
+      }
+    }
   }
 }
 
 @media screen and (max-width: 576px) {
   .card {
-    height: 60px;
-    padding-right: 20px;
+    flex-wrap: wrap;
 
-    &-image {
+    &-image-car {
       height: 60px;
-      width: 60px;
+      width: 65%;
+    }
+    &-image-driver {
+      height: 60px;
+      width: 35%;
     }
 
-    &-name {
-      font-size: 0.8rem;
-    }
+    &-text {
+      margin: 5px;
 
-    &-car {
-      font-size: 0.6rem;
+      &-name {
+        font-size: 0.8rem;
+      }
+
+      &-car {
+        font-size: 0.6rem;
+      }
     }
   }
 }

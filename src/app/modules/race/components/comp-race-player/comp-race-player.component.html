@@ -1,8 +1,4 @@
-<div
-  class="card flex-row justify-content-between align-items-center"
-  data-bs-toggle="modal"
-  data-bs-target="#selectPlayerModal"
->
+<div class="card" data-bs-toggle="modal" data-bs-target="#selectPlayerModal">
   <div
     *ngIf="!player.driver.name"
     class="d-flex justify-content-center align-items-center"
@@ -10,13 +6,21 @@
   >
     <span>SELECT PLAYER</span>
   </div>
+
   <div
     *ngIf="player.driver.name"
-    class="card-image"
+    class="card-image-driver"
     style="background-image:url('{{ player.driver.image }}') ;"
   ></div>
-  <div *ngIf="player.driver.name" class="d-flex flex-column align-items-end">
-    <span class="card-name">{{ player.driver.name }}</span>
-    <span class="card-car">{{ player.car.name }}</span>
+
+  <div
+    *ngIf="player.driver.name"
+    class="card-image-car"
+    style="background-image:url('{{ player.car.image }}') ;"
+  ></div>
+
+  <div *ngIf="player.driver.name" class="card-text">
+    <span class="card-text-name">{{ player.driver.name }}</span>
+    <span class="card-text-car">{{ player.car.name }}</span>
   </div>
 </div>
