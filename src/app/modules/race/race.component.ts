@@ -17,18 +17,20 @@ export class RaceComponent implements OnInit {
     },
     status: 'reseted',
     track: '',
-    P1: {
-      firstLap: true,
-      driver: null,
-      car: null,
-      laps: [],
-    },
-    P2: {
-      firstLap: true,
-      driver: {},
-      car: {},
-      laps: [],
-    },
+    players: [
+      {
+        firstLap: true,
+        driver: null,
+        car: null,
+        laps: [],
+      },
+      {
+        firstLap: true,
+        driver: null,
+        car: null,
+        laps: [],
+      },
+    ],
   };
 
   public playerSelected!: string;
@@ -50,31 +52,39 @@ export class RaceComponent implements OnInit {
   public setPlayer(event: any) {
     this.servApi.getData('/drivers/' + event.driver).subscribe((res: any) => {
       if (event.player == 'P1') {
-        this.race.P1.driver = res;
+        this.race.players[0].driver = res;
         localStorage.setItem('P1 driver', JSON.stringify(res));
       }
       if (event.player == 'P2') {
-        this.race.P2.driver = res;
+        this.race.players[1].driver = res;
         localStorage.setItem('P2 driver', JSON.stringify(res));
       }
     });
     this.servApi.getData('/cars/' + event.car).subscribe((res: any) => {
       if (event.player == 'P1') {
-        this.race.P1.car = res;
+        this.race.players[0].car = res;
         localStorage.setItem('P1 car', JSON.stringify(res));
       }
       if (event.player == 'P2') {
-        this.race.P2.car = res;
+        this.race.players[1].car = res;
         localStorage.setItem('P2 car', JSON.stringify(res));
       }
     });
   }
 
   private getLocalStorage() {
-    this.race.P1.driver = JSON.parse(localStorage.getItem('P1 driver') || '{}');
-    this.race.P1.car = JSON.parse(localStorage.getItem('P1 car') || '{}');
-    this.race.P2.driver = JSON.parse(localStorage.getItem('P2 driver') || '{}');
-    this.race.P2.car = JSON.parse(localStorage.getItem('P2 car') || '{}');
+    this.race.players[0].driver = JSON.parse(
+      localStorage.getItem('P1 driver') || '{}'
+    );
+    this.race.players[0].car = JSON.parse(
+      localStorage.getItem('P1 car') || '{}'
+    );
+    this.race.players[1].driver = JSON.parse(
+      localStorage.getItem('P2 driver') || '{}'
+    );
+    this.race.players[1].car = JSON.parse(
+      localStorage.getItem('P2 car') || '{}'
+    );
   }
 
   public changeNumberPlayers() {
@@ -88,37 +98,25 @@ export class RaceComponent implements OnInit {
   // escuta a volta marcada
   private listenLap() {
     this.socketIo.listen().subscribe((res: any) => {
-      let theLap = res.split('\r');
-      theLap = theLap[0].split('-');
-      //chama a gravação da volta
-      this.recordLap(theLap);
+      if (this.race.status == 'started') {
+        let theLap = res.split('\r');
+        theLap = theLap[0].split('-');
+        //chama a gravação da volta para cada player
+        if (!this.race.players[theLap[0]].firstLap) {
+          this.race.players[theLap[0]].laps.push(theLap[1]);
+        }
+        this.race.players[theLap[0]].firstLap = false;
+      }
     });
   }
 
-  private recordLap(thisLap: any) {
-    // se for P1
-    if (thisLap[0] === 'P1') {
-      if (!this.race.P1.firstLap) {
-        this.race.P1.laps.push(thisLap[1]);
-      }
-      this.race.P1.firstLap = false;
-    }
-    // se for P2
-    if (thisLap[0] === 'P2') {
-      if (!this.race.P2.firstLap) {
-        this.race.P2.laps.push(thisLap[1]);
-      }
-      this.race.P2.firstLap = false;
-    }
-  }
-
   async startRace() {
-    this.race.status = 'releasing';
-    // luzes vermelhas
-    for (let i = 0; i < 5; i++) {
-      await this.functions.delay(1000);
-      this.lights.push('r');
-    }
+    // this.race.status = 'releasing';
+    // // luzes vermelhas
+    // for (let i = 0; i < 5; i++) {
+    //   await this.functions.delay(1000);
+    //   this.lights.push('r');
+    // }
     // luz verde com um tempo sutil randomico
     let randomTime = Math.floor(Math.random() * (6000 - 1000 + 1)) + 1000;
     await this.functions.delay(randomTime);
@@ -134,10 +132,10 @@ export class RaceComponent implements OnInit {
     if (confirm('Tem certeza que quer resetar a corrida?') == true) {
       this.race.status = 'reseted';
       this.toastr.info('Corrida resetada');
-      this.race.P1.firstLap = true;
-      this.race.P2.firstLap = true;
-      this.race.P1.laps = [];
-      this.race.P2.laps = [];
+      this.race.players[0].firstLap = true;
+      this.race.players[1].firstLap = true;
+      this.race.players[0].laps = [];
+      this.race.players[1].laps = [];
       this.lights = [];
     }
   }

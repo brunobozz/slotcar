@@ -15,23 +15,23 @@
 <div class="row mb-4">
   <div class="col">
     <app-comp-race-player
-      [player]="race.P1"
+      [player]="race.players[0]"
       (click)="playerSelected = 'P1'"
     ></app-comp-race-player>
     <app-comp-race-list-lap
-      *ngIf="race.P1.laps.length != 0"
-      [lapsList]="race.P1.laps"
+      *ngIf="race.players[0].laps.length != 0"
+      [lapsList]="race.players[0].laps"
     ></app-comp-race-list-lap>
   </div>
 
   <div *ngIf="race.config.players == 2" class="col">
     <app-comp-race-player
-      [player]="race.P2"
+      [player]="race.players[1]"
       (click)="playerSelected = 'P2'"
     ></app-comp-race-player>
     <app-comp-race-list-lap
-      *ngIf="race.P2.laps.length != 0"
-      [lapsList]="race.P2.laps"
+      *ngIf="race.players[1].laps.length != 0"
+      [lapsList]="race.players[1].laps"
     ></app-comp-race-list-lap>
   </div>
 </div>
