@@ -1,10 +1,12 @@
-<!-- <div class="d-flex justify-content-center mb-4">
+<div class="d-flex justify-content-center mb-4">
   <app-comp-race-lights [lights]="lights"></app-comp-race-lights>
 </div>
--->
+
 <div class="mb-4">
   <app-comp-race-navbar
     [race]="race"
+    (startRace)="startRace()"
+    (stopRace)="stopRace()"
     (resetLaps)="resetRace()"
     (numberPlayers)="changeNumberPlayers()"
   ></app-comp-race-navbar>
