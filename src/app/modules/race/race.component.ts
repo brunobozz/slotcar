@@ -144,7 +144,6 @@ export class RaceComponent implements OnInit {
   }
 
   public raceAction(action: any) {
-    console.log(action);
     switch (action) {
       case 'start':
         this.raceLights.fiveRedCount();
