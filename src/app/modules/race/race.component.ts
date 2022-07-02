@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { ServFunctionsService } from 'src/app/services/serv-functions/serv-functions.service';
 import { ServMovkApiService } from 'src/app/services/serv-mock/serv-movk-api.service';
 import { ServSocketioService } from 'src/app/services/serv-socketio/serv-socketio.service';
+import { CompRaceLightsComponent } from './components/comp-race-lights/comp-race-lights.component';
 
 @Component({
   selector: 'app-race',
@@ -13,7 +13,7 @@ export class RaceComponent implements OnInit {
   public race: any = {
     config: {
       players: 2,
-      laps: 10,
+      laps: 5,
     },
     status: 'reseted',
     track: '',
@@ -34,12 +34,12 @@ export class RaceComponent implements OnInit {
   };
 
   public playerSelected!: string;
+  @ViewChild(CompRaceLightsComponent) raceLights!: CompRaceLightsComponent;
   public lights: any = [];
 
   constructor(
     private servApi: ServMovkApiService,
     private socketIo: ServSocketioService,
-    private functions: ServFunctionsService,
     private toastr: ToastrService
   ) {}
 
@@ -98,40 +98,79 @@ export class RaceComponent implements OnInit {
   // escuta a volta marcada
   private listenLap() {
     this.socketIo.listen().subscribe((res: any) => {
+      let theLap = res.split('\r');
+      theLap = theLap[0].split('-');
       if (this.race.status == 'started') {
-        let theLap = res.split('\r');
-        theLap = theLap[0].split('-');
-        //chama a gravação da volta para cada player
-        if (!this.race.players[theLap[0]].firstLap) {
-          this.race.players[theLap[0]].laps.push(theLap[1]);
+        // chama a gravação da volta para cada player
+        if (
+          this.race.players[theLap[0]].laps.length + 1 ==
+          this.race.config.laps
+        ) {
+          this.recordLap(theLap);
+          this.finishRace(theLap);
+        } else {
+          this.recordLap(theLap);
         }
-        this.race.players[theLap[0]].firstLap = false;
+      } else if (this.race.status == 'releasing') {
+        // chama queimou a largada
+        this.burnedRelease(theLap);
       }
     });
   }
 
-  async startRace() {
-    // this.race.status = 'releasing';
-    // // luzes vermelhas
-    // for (let i = 0; i < 5; i++) {
-    //   await this.functions.delay(1000);
-    //   this.lights.push('r');
-    // }
-    // luz verde com um tempo sutil randomico
-    let randomTime = Math.floor(Math.random() * (6000 - 1000 + 1)) + 1000;
-    await this.functions.delay(randomTime);
-    this.lights = ['g', 'g', 'g', 'g', 'g'];
-    this.race.status = 'started';
+  private recordLap(theLap: any) {
+    if (!this.race.players[theLap[0]].firstLap) {
+      this.race.players[theLap[0]].laps.push(theLap[1]);
+    }
+    this.race.players[theLap[0]].firstLap = false;
   }
 
-  public stopRace() {
-    this.race.status = 'stopped';
+  private burnedRelease(theLap: any) {
+    this.toastr.error(
+      'Queimou a largada!',
+      this.race.players[theLap[0]].driver.name
+    );
+  }
+
+  private finishRace(theLap: any) {
+    this.raceLights.blackAndWhite();
+    this.toastr.success(
+      'GANHOOOOOU!!!',
+      this.race.players[theLap[0]].driver.name,
+      {
+        timeOut: 10000,
+      }
+    );
+  }
+
+  public raceAction(action: any) {
+    console.log(action);
+    switch (action) {
+      case 'start':
+        this.raceLights.fiveRedCount();
+        break;
+      case 'stop':
+        this.raceLights.turnRed();
+        this.raceStatus('stopped');
+        break;
+      case 'resume':
+        this.raceLights.turnGreen();
+        this.raceStatus('started');
+        break;
+      case 'reset':
+        this.resetRace();
+        this.raceStatus('reseted');
+        this.toastr.info('Corrida resetada');
+        break;
+    }
+  }
+
+  public raceStatus(status: string) {
+    this.race.status = status;
   }
 
   public resetRace() {
     if (confirm('Tem certeza que quer resetar a corrida?') == true) {
-      this.race.status = 'reseted';
-      this.toastr.info('Corrida resetada');
       this.race.players[0].firstLap = true;
       this.race.players[1].firstLap = true;
       this.race.players[0].laps = [];

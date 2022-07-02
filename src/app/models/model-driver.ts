@@ -1,4 +1,4 @@
-export class Driver {
+export class ModelDriver {
   constructor(
     public id: number,
     public name: string,

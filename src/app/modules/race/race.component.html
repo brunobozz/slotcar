@@ -1,13 +1,14 @@
 <div class="d-flex justify-content-center mb-4">
-  <app-comp-race-lights [lights]="lights"></app-comp-race-lights>
+  <app-comp-race-lights
+    [lights]="lights"
+    (changeStatus)="raceStatus($event)"
+  ></app-comp-race-lights>
 </div>
 
 <div class="mb-4">
   <app-comp-race-navbar
     [race]="race"
-    (startRace)="startRace()"
-    (stopRace)="stopRace()"
-    (resetLaps)="resetRace()"
+    (raceAction)="raceAction($event)"
     (numberPlayers)="changeNumberPlayers()"
   ></app-comp-race-navbar>
 </div>

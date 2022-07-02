@@ -35,9 +35,9 @@ import { CdtModule } from './modules/cdt/cdt.module';
     BrowserAnimationsModule,
     HttpClientModule,
     ToastrModule.forRoot({
-      timeOut: 3000,
+      timeOut: 5000,
       positionClass: 'toast-bottom-right',
-      maxOpened: 2,
+      maxOpened: 4,
       autoDismiss: true,
     }),
 

@@ -8,23 +8,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class CompRaceNavbarComponent {
   @Input() race: any;
   @Output() numberPlayers = new EventEmitter();
-  @Output() startRace = new EventEmitter();
-  @Output() stopRace = new EventEmitter();
-  @Output() resetLaps = new EventEmitter();
+  @Output() raceAction = new EventEmitter();
 
   public numberOfPlayers() {
     this.numberPlayers.emit();
   }
 
-  public start() {
-    this.startRace.emit();
-  }
-
-  public stop() {
-    this.stopRace.emit();
-  }
-
-  public reset() {
-    this.resetLaps.emit();
+  public action(action: string) {
+    this.raceAction.emit(action);
   }
 }
