@@ -28,8 +28,11 @@ export class CompRaceLightsComponent {
     this.lights = ['g', 'g', 'g', 'g', 'g'];
   }
 
+  public halfGreen() {
+    this.lights = ['g', '', 'g', '', 'g'];
+  }
+
   public async fiveRedCount() {
-    this.changeStatus.emit('releasing');
     for (let i = 0; i < 5; i++) {
       await this.functions.delay(500);
       this.lights.push('r');
@@ -45,7 +48,6 @@ export class CompRaceLightsComponent {
   }
 
   public async blackAndWhite() {
-    this.changeStatus.emit('finished');
     for (let i = 0; i < 5; i++) {
       this.lights = ['w', '', 'w', '', 'w'];
       await this.functions.delay(200);

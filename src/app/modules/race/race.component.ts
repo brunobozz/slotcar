@@ -11,29 +11,20 @@ import { CompRaceLightsComponent } from './components/comp-race-lights/comp-race
 })
 export class RaceComponent implements OnInit {
   public race: any = {
-    config: {
-      players: 2,
-      laps: 5,
-    },
+    laps: 10,
     status: 'reseted',
     track: '',
     players: [
       {
         firstLap: true,
-        driver: null,
-        car: null,
-        laps: [],
-      },
-      {
-        firstLap: true,
-        driver: null,
-        car: null,
+        driver: {},
+        car: {},
         laps: [],
       },
     ],
   };
 
-  public playerSelected!: string;
+  public playerSelected!: number;
   @ViewChild(CompRaceLightsComponent) raceLights!: CompRaceLightsComponent;
   public lights: any = [];
 
@@ -48,50 +39,43 @@ export class RaceComponent implements OnInit {
     this.getLocalStorage();
   }
 
-  //seleciona player
-  public setPlayer(event: any) {
-    this.servApi.getData('/drivers/' + event.driver).subscribe((res: any) => {
-      if (event.player == 'P1') {
-        this.race.players[0].driver = res;
-        localStorage.setItem('P1 driver', JSON.stringify(res));
-      }
-      if (event.player == 'P2') {
-        this.race.players[1].driver = res;
-        localStorage.setItem('P2 driver', JSON.stringify(res));
-      }
-    });
-    this.servApi.getData('/cars/' + event.car).subscribe((res: any) => {
-      if (event.player == 'P1') {
-        this.race.players[0].car = res;
-        localStorage.setItem('P1 car', JSON.stringify(res));
-      }
-      if (event.player == 'P2') {
-        this.race.players[1].car = res;
-        localStorage.setItem('P2 car', JSON.stringify(res));
-      }
-    });
-  }
-
   private getLocalStorage() {
-    this.race.players[0].driver = JSON.parse(
-      localStorage.getItem('P1 driver') || '{}'
-    );
-    this.race.players[0].car = JSON.parse(
-      localStorage.getItem('P1 car') || '{}'
-    );
-    this.race.players[1].driver = JSON.parse(
-      localStorage.getItem('P2 driver') || '{}'
-    );
-    this.race.players[1].car = JSON.parse(
-      localStorage.getItem('P2 car') || '{}'
-    );
+    if (localStorage.getItem('race')) {
+      this.race = JSON.parse(localStorage.getItem('race') || '{}');
+    }
   }
 
-  public changeNumberPlayers() {
-    if (this.race.config.players == 1) {
-      this.race.config.players = 2;
-    } else {
-      this.race.config.players = 1;
+  //seleciona player
+  public async setPlayer(event: any) {
+    this.servApi.getData('/drivers/' + event.driver).subscribe((res: any) => {
+      this.race.players[event.player].driver = res;
+      this.servApi.getData('/cars/' + event.car).subscribe((res: any) => {
+        this.race.players[event.player].car = res;
+        localStorage.setItem('race', JSON.stringify(this.race));
+      });
+    });
+  }
+
+  public raceConfig(config: any) {
+    switch (config.name) {
+      case 'laps':
+        this.race.laps = this.race.laps + config.num;
+        localStorage.setItem('race', JSON.stringify(this.race));
+        break;
+      case 'players':
+        if (config.num > 0) {
+          this.race.players.push({
+            firstLap: true,
+            driver: {},
+            car: {},
+            laps: [],
+          });
+          console.log(this.race);
+        } else {
+          this.race.players.pop();
+        }
+        localStorage.setItem('race', JSON.stringify(this.race));
+        break;
     }
   }
 
@@ -100,12 +84,11 @@ export class RaceComponent implements OnInit {
     this.socketIo.listen().subscribe((res: any) => {
       let theLap = res.split('\r');
       theLap = theLap[0].split('-');
-      if (this.race.status == 'started') {
+      if (this.race.status == 'free') {
+        this.recordLap(theLap);
+      } else if (this.race.status == 'started') {
         // chama a gravação da volta para cada player
-        if (
-          this.race.players[theLap[0]].laps.length + 1 ==
-          this.race.config.laps
-        ) {
+        if (this.race.players[theLap[0]].laps.length + 1 == this.race.laps) {
           this.recordLap(theLap);
           this.finishRace(theLap);
         } else {
@@ -134,6 +117,7 @@ export class RaceComponent implements OnInit {
 
   private finishRace(theLap: any) {
     this.raceLights.blackAndWhite();
+    this.raceStatus('finished');
     this.toastr.success(
       'GANHOOOOOU!!!',
       this.race.players[theLap[0]].driver.name,
@@ -145,8 +129,13 @@ export class RaceComponent implements OnInit {
 
   public raceAction(action: any) {
     switch (action) {
+      case 'free':
+        this.raceLights.halfGreen();
+        this.raceStatus('free');
+        break;
       case 'start':
         this.raceLights.fiveRedCount();
+        this.raceStatus('releasing');
         break;
       case 'stop':
         this.raceLights.turnRed();

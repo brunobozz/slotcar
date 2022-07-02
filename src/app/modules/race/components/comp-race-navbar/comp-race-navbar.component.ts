@@ -7,14 +7,19 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class CompRaceNavbarComponent {
   @Input() race: any;
-  @Output() numberPlayers = new EventEmitter();
+  @Output() raceConfig = new EventEmitter();
   @Output() raceAction = new EventEmitter();
 
-  public numberOfPlayers() {
-    this.numberPlayers.emit();
+  public config(name: string, num: number) {
+    let config = { name, num };
+    this.raceConfig.emit(config);
   }
 
   public action(action: string) {
     this.raceAction.emit(action);
+  }
+
+  public resetPlayers() {
+    localStorage.clear();
   }
 }

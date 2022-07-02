@@ -19,7 +19,7 @@ import { ServMovkApiService } from 'src/app/services/serv-mock/serv-movk-api.ser
 export class CompRaceSelectPlayerModalComponent implements OnInit {
   @ViewChild('closeModal') closeModal!: ElementRef;
   @Output() setPlayer = new EventEmitter();
-  @Input() playerSelected!: string;
+  @Input() playerSelected!: number;
 
   public driversList: any;
   public carsList: any;

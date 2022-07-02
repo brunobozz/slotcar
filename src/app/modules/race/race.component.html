@@ -9,15 +9,15 @@
   <app-comp-race-navbar
     [race]="race"
     (raceAction)="raceAction($event)"
-    (numberPlayers)="changeNumberPlayers()"
+    (raceConfig)="raceConfig($event)"
   ></app-comp-race-navbar>
 </div>
 
 <div class="row mb-4">
-  <div *ngFor="let player of race.players" class="col">
+  <div *ngFor="let player of race.players; let i = index" class="col">
     <app-comp-race-player
       [player]="player"
-      (click)="playerSelected = 'P1'"
+      (click)="playerSelected = i"
     ></app-comp-race-player>
     <app-comp-race-list-lap
       *ngIf="player.laps.length != 0"

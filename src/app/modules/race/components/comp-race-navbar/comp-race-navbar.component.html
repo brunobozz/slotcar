@@ -10,9 +10,9 @@
         </button>
       </div> -->
 
-      <div class="btn-group me-2">
-        <span *ngIf="race.status == 'releasing'">Lights ON!</span>
+      <span *ngIf="race.status == 'releasing'">Lights ON!</span>
 
+      <div class="btn-group me-2">
         <button
           *ngIf="race.status == 'reseted'"
           class="btn btn-success"
@@ -32,7 +32,7 @@
         </button>
 
         <button
-          *ngIf="race.status == 'started'"
+          *ngIf="race.status == 'started' || race.status == 'free'"
           class="btn btn-danger"
           (click)="action('stop')"
         >
@@ -48,13 +48,41 @@
           <i class="fa fa-times"></i>
           <span> Reset</span>
         </button>
+
+        <button
+          *ngIf="race.status == 'reseted'"
+          class="btn btn-purple"
+          (click)="action('free')"
+        >
+          <i class="fa fa-play"></i>
+          <span> Free Play</span>
+        </button>
       </div>
 
-      <div>
-        <button class="btn btn-secondary" (click)="numberOfPlayers()">
-          <span *ngIf="race.config.players == 1"> 1 Player</span>
-          <span *ngIf="race.config.players == 2"> 2 Players</span>
-        </button>
+      <div class="d-flex">
+        <div class="btn-group ms-3">
+          <button class="btn btn-info" (click)="config('laps', -1)">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button class="btn btn-info" style="pointer-events: none">
+            {{ race.laps }} Laps
+          </button>
+          <button class="btn btn-info" (click)="config('laps', 1)">
+            <i class="fa fa-plus"></i>
+          </button>
+        </div>
+
+        <div class="btn-group ms-3">
+          <button class="btn btn-secondary" (click)="config('players', -1)">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button class="btn btn-secondary" style="pointer-events: none">
+            {{ race.players.length }} Players
+          </button>
+          <button class="btn btn-secondary" (click)="config('players', 1)">
+            <i class="fa fa-plus"></i>
+          </button>
+        </div>
       </div>
     </div>
   </div>
