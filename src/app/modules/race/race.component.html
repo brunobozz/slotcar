@@ -14,25 +14,14 @@
 </div>
 
 <div class="row mb-4">
-  <div class="col">
+  <div *ngFor="let player of race.players" class="col">
     <app-comp-race-player
-      [player]="race.players[0]"
+      [player]="player"
       (click)="playerSelected = 'P1'"
     ></app-comp-race-player>
     <app-comp-race-list-lap
-      *ngIf="race.players[0].laps.length != 0"
-      [lapsList]="race.players[0].laps"
-    ></app-comp-race-list-lap>
-  </div>
-
-  <div *ngIf="race.config.players == 2" class="col">
-    <app-comp-race-player
-      [player]="race.players[1]"
-      (click)="playerSelected = 'P2'"
-    ></app-comp-race-player>
-    <app-comp-race-list-lap
-      *ngIf="race.players[1].laps.length != 0"
-      [lapsList]="race.players[1].laps"
+      *ngIf="player.laps.length != 0"
+      [lapsList]="player.laps"
     ></app-comp-race-list-lap>
   </div>
 </div>
