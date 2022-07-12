@@ -23,6 +23,10 @@ export class RaceComponent implements OnInit {
       },
     ],
   };
+  public fast = {
+    driver: '- FASTAST LAP',
+    lap: '',
+  };
 
   public playerSelected!: number;
   @ViewChild(CompRaceLightsComponent) raceLights!: CompRaceLightsComponent;
@@ -104,8 +108,20 @@ export class RaceComponent implements OnInit {
   private recordLap(theLap: any) {
     if (!this.race.players[theLap[0]].firstLap) {
       this.race.players[theLap[0]].laps.push(theLap[1]);
+      this.setFastast();
     }
     this.race.players[theLap[0]].firstLap = false;
+  }
+
+  private setFastast() {
+    this.race.players.map((player: any) => {
+      player.laps.map((lap: any) => {
+        if (+lap < +this.fast.lap || this.fast.lap == '') {
+          this.fast.lap = lap;
+          this.fast.driver = player.driver.name;
+        }
+      });
+    });
   }
 
   private burnedRelease(theLap: any) {
@@ -158,12 +174,14 @@ export class RaceComponent implements OnInit {
   }
 
   public resetRace() {
-    if (confirm('Tem certeza que quer resetar a corrida?') == true) {
-      this.race.players[0].firstLap = true;
-      this.race.players[1].firstLap = true;
-      this.race.players[0].laps = [];
-      this.race.players[1].laps = [];
-      this.lights = [];
-    }
+    // if (confirm('Tem certeza que quer resetar a corrida?') == true) {
+    this.race.players[0].firstLap = true;
+    this.race.players[1].firstLap = true;
+    this.race.players[0].laps = [];
+    this.race.players[1].laps = [];
+    this.lights = [];
+    this.fast.driver = '- FASTEST LAP';
+    this.fast.lap = '';
+    // }
   }
 }
