@@ -1,88 +1,86 @@
 <div class="d-grid">
-  <div class="card">
-    <div
-      class="card-body d-flex justify-content-between align-items-center flex-wrap"
-    >
-      <!-- <div>
+  <div
+    class="card d-flex flex-row justify-content-between align-items-center flex-wrap pb-2 pe-2"
+  >
+    <!-- <div>
         <button class="btn btn-primary">
           <i class="fa fa-map-o"></i>
           <span> SELECT TRACK</span>
         </button>
       </div> -->
 
-      <span *ngIf="race.status == 'releasing'">Lights ON!</span>
+    <span *ngIf="race.status == 'releasing'">Lights ON!</span>
 
-      <div class="btn-group me-2">
-        <button
-          *ngIf="race.status == 'reseted'"
-          class="btn btn-success"
-          (click)="action('start')"
-        >
-          <i class="fa fa-play"></i>
-          <span> Start</span>
+    <div>
+      <button
+        *ngIf="race.status == 'reseted'"
+        class="btn btn-success ms-2 mt-2"
+        (click)="action('start')"
+      >
+        <i class="fa fa-play"></i>
+        <span> Start</span>
+      </button>
+
+      <button
+        *ngIf="race.status == 'stopped'"
+        class="btn btn-info ms-2 mt-2"
+        (click)="action('resume')"
+      >
+        <i class="fa fa-play"></i>
+        <span> Resume</span>
+      </button>
+
+      <button
+        *ngIf="race.status == 'started' || race.status == 'free'"
+        class="btn btn-danger ms-2 mt-2"
+        (click)="action('stop')"
+      >
+        <i class="fa fa-square"></i>
+        <span> Stop</span>
+      </button>
+
+      <button
+        *ngIf="race.status == 'finished' || race.status == 'stopped'"
+        class="btn btn-purple ms-2 mt-2"
+        (click)="action('reset')"
+      >
+        <i class="fa fa-times"></i>
+        <span> Reset</span>
+      </button>
+
+      <button
+        *ngIf="race.status == 'reseted'"
+        class="btn btn-purple ms-2 mt-2"
+        (click)="action('free')"
+      >
+        <i class="fa fa-play"></i>
+        <span> Free Play</span>
+      </button>
+    </div>
+
+    <div class="d-flex">
+      <div class="btn-group ms-2 mt-2">
+        <button class="btn btn-info" (click)="config('laps', -1)">
+          <i class="fa fa-minus"></i>
         </button>
-
-        <button
-          *ngIf="race.status == 'stopped'"
-          class="btn btn-info"
-          (click)="action('resume')"
-        >
-          <i class="fa fa-play"></i>
-          <span> Resume</span>
+        <button class="btn btn-info" style="pointer-events: none">
+          {{ race.laps }} Laps
         </button>
-
-        <button
-          *ngIf="race.status == 'started' || race.status == 'free'"
-          class="btn btn-danger"
-          (click)="action('stop')"
-        >
-          <i class="fa fa-square"></i>
-          <span> Stop</span>
-        </button>
-
-        <button
-          *ngIf="race.status == 'finished' || race.status == 'stopped'"
-          class="btn btn-purple"
-          (click)="action('reset')"
-        >
-          <i class="fa fa-times"></i>
-          <span> Reset</span>
-        </button>
-
-        <button
-          *ngIf="race.status == 'reseted'"
-          class="btn btn-purple"
-          (click)="action('free')"
-        >
-          <i class="fa fa-play"></i>
-          <span> Free Play</span>
+        <button class="btn btn-info" (click)="config('laps', 1)">
+          <i class="fa fa-plus"></i>
         </button>
       </div>
 
-      <div class="d-flex">
-        <div class="btn-group ms-3">
-          <button class="btn btn-info" (click)="config('laps', -1)">
-            <i class="fa fa-minus"></i>
-          </button>
-          <button class="btn btn-info" style="pointer-events: none">
-            {{ race.laps }} Laps
-          </button>
-          <button class="btn btn-info" (click)="config('laps', 1)">
-            <i class="fa fa-plus"></i>
-          </button>
-        </div>
-
-        <div class="btn-group ms-3">
-          <button class="btn btn-secondary" (click)="config('players', -1)">
-            <i class="fa fa-minus"></i>
-          </button>
-          <button class="btn btn-secondary" style="pointer-events: none">
-            {{ race.players.length }} Players
-          </button>
-          <button class="btn btn-secondary" (click)="config('players', 1)">
-            <i class="fa fa-plus"></i>
-          </button>
-        </div>
+      <div class="btn-group ms-2 mt-2">
+        <button class="btn btn-secondary" (click)="config('players', -1)">
+          <i class="fa fa-minus"></i>
+        </button>
+        <button class="btn btn-secondary" style="pointer-events: none">
+          {{ race.players.length }} Players
+        </button>
+        <button class="btn btn-secondary" (click)="config('players', 1)">
+          <i class="fa fa-plus"></i>
+        </button>
       </div>
     </div>
   </div>
