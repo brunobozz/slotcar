@@ -13,7 +13,7 @@
 
     <div>
       <button
-        *ngIf="race.status == 'reseted'"
+        *ngIf="race.status == 'stopped'"
         class="btn btn-success ms-2 mt-2"
         (click)="action('start')"
       >
@@ -22,34 +22,20 @@
       </button>
 
       <button
-        *ngIf="race.status == 'stopped'"
-        class="btn btn-info ms-2 mt-2"
-        (click)="action('resume')"
-      >
-        <i class="fa fa-play"></i>
-        <span> Resume</span>
-      </button>
-
-      <button
-        *ngIf="race.status == 'started' || race.status == 'free'"
+        *ngIf="
+          race.status == 'started' ||
+          race.status == 'free' ||
+          race.status == 'finished'
+        "
         class="btn btn-danger ms-2 mt-2"
         (click)="action('stop')"
       >
         <i class="fa fa-square"></i>
-        <span> Stop</span>
+        <span> Stop/Reset</span>
       </button>
 
       <button
-        *ngIf="race.status == 'finished' || race.status == 'stopped'"
-        class="btn btn-purple ms-2 mt-2"
-        (click)="action('reset')"
-      >
-        <i class="fa fa-times"></i>
-        <span> Reset</span>
-      </button>
-
-      <button
-        *ngIf="race.status == 'reseted'"
+        *ngIf="race.status == 'stopped'"
         class="btn btn-purple ms-2 mt-2"
         (click)="action('free')"
       >

@@ -12,7 +12,7 @@ import { CompRaceLightsComponent } from './components/comp-race-lights/comp-race
 export class RaceComponent implements OnInit {
   public race: any = {
     laps: 10,
-    status: 'reseted',
+    status: 'stopped',
     track: '',
     players: [
       {
@@ -40,6 +40,7 @@ export class RaceComponent implements OnInit {
 
   ngOnInit(): void {
     this.listenLap();
+    // localStorage.setItem('race', JSON.stringify(this.race));
     this.getLocalStorage();
   }
 
@@ -74,7 +75,6 @@ export class RaceComponent implements OnInit {
             car: {},
             laps: [],
           });
-          console.log(this.race);
         } else {
           this.race.players.pop();
         }
@@ -133,7 +133,7 @@ export class RaceComponent implements OnInit {
     );
     this.race.players[found] = player;
     this.fast.lap = '';
-    this.fast.driver = '';
+    this.fast.driver = '- FASTEST LAP';
     this.setFastast();
   }
 
@@ -167,17 +167,14 @@ export class RaceComponent implements OnInit {
         this.raceStatus('releasing');
         break;
       case 'stop':
+        this.resetRace();
         this.raceLights.turnRed();
         this.raceStatus('stopped');
+        this.toastr.info('Corrida resetada');
         break;
       case 'resume':
         this.raceLights.turnGreen();
         this.raceStatus('started');
-        break;
-      case 'reset':
-        this.resetRace();
-        this.raceStatus('reseted');
-        this.toastr.info('Corrida resetada');
         break;
     }
   }
@@ -187,7 +184,6 @@ export class RaceComponent implements OnInit {
   }
 
   public resetRace() {
-    // if (confirm('Tem certeza que quer resetar a corrida?') == true) {
     this.race.players[0].firstLap = true;
     this.race.players[1].firstLap = true;
     this.race.players[0].laps = [];
@@ -195,6 +191,5 @@ export class RaceComponent implements OnInit {
     this.lights = [];
     this.fast.driver = '- FASTEST LAP';
     this.fast.lap = '';
-    // }
   }
 }
