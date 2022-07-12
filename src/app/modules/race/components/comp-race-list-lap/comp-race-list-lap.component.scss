@@ -1,0 +1,21 @@
+.list-group-item {
+  overflow: hidden;
+  
+  .delete-lap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-left: -1rem;
+    cursor: pointer;
+  }
+
+  &:hover {
+    .delete-lap {
+      display: flex;
+    }
+  }
+}
