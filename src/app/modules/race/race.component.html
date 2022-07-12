@@ -13,6 +13,10 @@
   ></app-comp-race-navbar>
 </div>
 
+<div class="mb-4">
+  <app-comp-race-fastest-lap [fast]="fast"></app-comp-race-fastest-lap>
+</div>
+
 <div class="row mb-4">
   <div *ngFor="let player of race.players; let i = index" class="col">
     <app-comp-race-player
