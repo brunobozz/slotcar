@@ -17,6 +17,8 @@ export class TimePipe implements PipeTransform {
     let letter = ' s';
 
     timeString = String(milliseconds % 1000);
+    timeString = '00' + timeString;
+    timeString = timeString.slice(-3);
 
     if (seconds != 0) {
       timeString = seconds + '.' + timeString;
