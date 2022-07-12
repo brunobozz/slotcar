@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./comp-race-fastest-lap.component.scss'],
 })
 export class CompRaceFastestLapComponent {
-  @Input() fastestLap: any;
+  @Input() fast: any;
 }

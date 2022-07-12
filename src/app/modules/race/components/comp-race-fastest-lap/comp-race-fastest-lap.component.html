@@ -1,7 +1,6 @@
-<div class="card mt-4 bg-success">
-  <div class="card-body text-center fs-3 text-white fw-bold">
-    LAP {{ fastestLap.number }} - {{ fastestLap.minute }}:{{
-      fastestLap.second
-    }}.{{ fastestLap.millisecond }}
-  </div>
+<div class="d-grid">
+  <button class="btn btn-lg btn-purple text-center">
+    {{ fast.driver }} -
+    <span *ngIf="fast.lap != ''">{{ fast.lap | time }}</span>
+  </button>
 </div>
