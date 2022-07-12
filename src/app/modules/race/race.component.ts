@@ -105,6 +105,7 @@ export class RaceComponent implements OnInit {
     });
   }
 
+  // grava a volta
   private recordLap(theLap: any) {
     if (!this.race.players[theLap[0]].firstLap) {
       this.race.players[theLap[0]].laps.push(theLap[1]);
@@ -113,6 +114,7 @@ export class RaceComponent implements OnInit {
     this.race.players[theLap[0]].firstLap = false;
   }
 
+  // verifica a volta maos rápida
   private setFastast() {
     this.race.players.map((player: any) => {
       player.laps.map((lap: any) => {
@@ -122,6 +124,17 @@ export class RaceComponent implements OnInit {
         }
       });
     });
+  }
+
+  // deleta a volta do player certo e recalcula melhor volta
+  public deleteLap(player: any) {
+    const found = this.race.players.findIndex(
+      (element: any) => element.driver.name == player.driver.name
+    );
+    this.race.players[found] = player;
+    this.fast.lap = '';
+    this.fast.driver = '';
+    this.setFastast();
   }
 
   private burnedRelease(theLap: any) {

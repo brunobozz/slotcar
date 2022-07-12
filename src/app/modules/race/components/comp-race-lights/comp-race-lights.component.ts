@@ -33,7 +33,7 @@ export class CompRaceLightsComponent {
   }
 
   public async fiveRedCount() {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 4; i++) {
       await this.functions.delay(500);
       this.lights.push('r');
     }

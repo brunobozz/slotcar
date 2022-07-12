@@ -25,7 +25,8 @@
     ></app-comp-race-player>
     <app-comp-race-list-lap
       *ngIf="player.laps.length != 0"
-      [lapsList]="player.laps"
+      [player]="player"
+      (deleteLap)="deleteLap(player)"
     ></app-comp-race-list-lap>
   </div>
 </div>
