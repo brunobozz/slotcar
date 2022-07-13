@@ -24,7 +24,7 @@ export class RaceComponent implements OnInit {
     ],
   };
   public fast = {
-    driver: '- FASTAST LAP',
+    driver: 'FASTAST LAP',
     lap: '',
   };
 
@@ -171,10 +171,6 @@ export class RaceComponent implements OnInit {
         this.raceLights.turnRed();
         this.raceStatus('stopped');
         this.toastr.info('Corrida resetada');
-        break;
-      case 'resume':
-        this.raceLights.turnGreen();
-        this.raceStatus('started');
         break;
     }
   }

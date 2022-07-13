@@ -3,7 +3,7 @@
   justify-content: space-around;
   align-items: center;
   background-color: #666;
-  background-size: 20%;
+  background-size: 25%;
   background-image: url("https://us.123rf.com/450wm/elovich/elovich1412/elovich141200670/34784810-black-carbon-pattern-texture.jpg?ver=6");
   max-width: 100%;
   border-radius: 10px;
@@ -15,39 +15,40 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    border: 4px solid rgba(0, 0, 0, 0.5);
     background-color: rgba(0, 0, 0, 0.5);
     box-shadow: inset 0 0 20px rgba(#000, 0.7), 0 0 10px rgba(0, 0, 0, 0.8);
   }
   [class*="led"].y {
-    background: rgb(248, 246, 92);
+    background: rgba(248, 246, 92, 0.8);
     background: radial-gradient(
       circle,
-      rgba(255, 254, 187, 1) 0%,
-      rgba(206, 214, 0, 1) 100%
+      rgba(255, 254, 187, 0.8) 0%,
+      rgba(206, 214, 0, 0.8) 100%
     );
   }
   [class*="led"].r {
-    background: rgb(248, 70, 70);
+    background: rgba(248, 70, 70, 0.8);
     background: radial-gradient(
       circle,
-      rgba(255, 120, 120, 1) 0%,
-      rgba(255, 0, 0, 1) 100%
+      rgba(255, 120, 120, 0.8) 0%,
+      rgba(255, 0, 0, 0.8) 100%
     );
   }
   [class*="led"].g {
-    background: rgb(126, 255, 94);
+    background: rgba(126, 255, 94, 0.8);
     background: radial-gradient(
       circle,
-      rgba(201, 255, 187, 1) 0%,
-      rgba(48, 255, 0, 1) 100%
+      rgba(201, 255, 187, 0.8) 0%,
+      rgba(48, 255, 0, 0.8) 100%
     );
   }
   [class*="led"].w {
-    background: rgb(255, 255, 255);
+    background: rgba(255, 255, 255, 0.8);
     background: radial-gradient(
       circle,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(150, 150, 150, 1) 100%
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(150, 150, 150, 0.8) 100%
     );
   }
 }
