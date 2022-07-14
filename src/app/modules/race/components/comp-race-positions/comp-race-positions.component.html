@@ -1,0 +1,22 @@
+<div>
+  <button
+    *ngFor="let position of positions; let i = index"
+    class="btn"
+    style="pointer-events: none"
+  >
+    <span *ngIf="i == 0" class="text-warning"> Leader </span>
+    <span *ngIf="position.difTime == 0 && i != 0" class="text-warning">
+      + {{ position.difLap }} laps
+    </span>
+    <span *ngIf="position.difTime != 0" class="text-warning">
+      + {{ position.difTime | time }}
+    </span>
+    <span>{{ i + 1 }} {{ position.name }}</span>
+  </button>
+</div>
+
+<!-- 
+[ngStyle]="{
+    'background-color': 'rgba(255,255,255,' + 0.5 / (i + 1) + ')'
+  }"
+-->

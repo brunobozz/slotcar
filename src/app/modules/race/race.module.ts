@@ -15,6 +15,7 @@ import { CompRaceLightsComponent } from './components/comp-race-lights/comp-race
 import { CompRacePlayerComponent } from './components/comp-race-player/comp-race-player.component';
 import { CompRaceNavbarComponent } from './components/comp-race-navbar/comp-race-navbar.component';
 import { CompRaceSelectPlayerModalComponent } from './components/comp-race-select-player-modal/comp-race-select-player-modal.component';
+import { CompRacePositionsComponent } from './components/comp-race-positions/comp-race-positions.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { CompRaceSelectPlayerModalComponent } from './components/comp-race-selec
     CompRacePlayerComponent,
     CompRaceNavbarComponent,
     CompRaceSelectPlayerModalComponent,
+    CompRacePositionsComponent,
   ],
   imports: [CommonModule, NgxMaskModule.forRoot(), ReactiveFormsModule],
 })

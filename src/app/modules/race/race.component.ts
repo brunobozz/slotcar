@@ -41,6 +41,7 @@ export class RaceComponent implements OnInit {
   ngOnInit(): void {
     this.listenLap();
     // localStorage.setItem('race', JSON.stringify(this.race));
+    // localStorage.clear();
     this.getLocalStorage();
   }
 

@@ -4,6 +4,8 @@
     (changeStatus)="raceStatus($event)"
   ></app-comp-race-lights>
 
+  <app-comp-race-positions [race]="race"></app-comp-race-positions>
+
   <app-comp-race-fastest-lap [fast]="fast"></app-comp-race-fastest-lap>
 </div>
 
@@ -14,6 +16,8 @@
     (raceConfig)="raceConfig($event)"
   ></app-comp-race-navbar>
 </div>
+
+<!-- <div class="mb-4"></div> -->
 
 <div class="row mb-4">
   <div *ngFor="let player of race.players; let i = index" class="col">
