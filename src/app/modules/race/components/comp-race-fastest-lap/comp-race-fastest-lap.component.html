@@ -1,9 +1,4 @@
-<div class="d-grid">
-  <button
-    class="btn btn-lg btn-purple text-center"
-    style="pointer-events: none"
-  >
-    {{ fast.driver }} 
-    <span *ngIf="fast.lap != ''">- {{ fast.lap | time }}</span>
-  </button>
-</div>
+<button class="btn btn-lg btn-purple text-center" style="pointer-events: none">
+  {{ fast.driver }}
+  <span *ngIf="fast.lap != ''">- {{ fast.lap | time }}</span>
+</button>
