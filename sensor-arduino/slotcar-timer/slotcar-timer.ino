@@ -5,7 +5,7 @@
 #define BUZZER A0
 #define intervaloLeitura 1000000
 
-#define distancia 122000  // 12.2 centimetros convertidos para micros
+#define distancia 200000  // 12.2 centimetros convertidos para micros
 
 int estadoP1 = 0;
 int estadoP2 = 0;
