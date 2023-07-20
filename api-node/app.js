@@ -9,7 +9,8 @@ const io = new Server(httpServer, {
   cors: true,
   origins: ["*"],
 });
-const port = new SerialPort({ path: "COM6", baudRate: 9600 });
+const port = new SerialPort({ path: "/dev/cu.usbmodem14201", baudRate: 9600 });
+// const port = new SerialPort({ path: "COM6", baudRate: 9600 });
 const parserInfo = port.pipe(new ReadlineParser({ delimiter: "\n" }));
 
 parserInfo.on("data", (line) => {
