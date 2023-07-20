@@ -93,7 +93,7 @@ export class RaceComponent implements OnInit {
         this.recordLap(theLap);
       } else if (this.race.status == 'started') {
         // chama a gravação da volta para cada player
-        if (this.race.players[theLap[0]].laps.length + 1 == this.race.laps) {
+        if (this.race.players[theLap[1]].laps.length + 1 == this.race.laps) {
           this.recordLap(theLap);
           this.finishRace(theLap);
         } else {
@@ -108,15 +108,22 @@ export class RaceComponent implements OnInit {
 
   // grava a volta
   private recordLap(theLap: any) {
-    if (!this.race.players[theLap[0]].firstLap) {
-      this.race.players[theLap[0]].laps.push(theLap[1]);
-      this.setFastast();
+    console.log('grava volta');
+    if (theLap[0] == 'T') {
+      console.log(theLap);
+      const player = this.race.players[theLap[1]];
+      if (player?.firstLap !== undefined) {
+        if (!player.firstLap) {
+          player.laps.push(theLap[2]);
+          this.setFastest();
+        }
+        player.firstLap = false;
+      }
     }
-    this.race.players[theLap[0]].firstLap = false;
   }
 
   // verifica a volta maos rápida
-  private setFastast() {
+  private setFastest() {
     this.race.players.map((player: any) => {
       player.laps.map((lap: any) => {
         if (+lap < +this.fast.lap || this.fast.lap == '') {
@@ -135,7 +142,7 @@ export class RaceComponent implements OnInit {
     this.race.players[found] = player;
     this.fast.lap = '';
     this.fast.driver = '- FASTEST LAP';
-    this.setFastast();
+    this.setFastest();
   }
 
   private burnedRelease(theLap: any) {
@@ -158,6 +165,7 @@ export class RaceComponent implements OnInit {
   }
 
   public raceAction(action: any) {
+    console.log(action);
     switch (action) {
       case 'free':
         this.raceLights.halfGreen();
