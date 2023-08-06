@@ -48,7 +48,7 @@ void lerSensorP1() {
     tone(BUZZER, 1900, 700);
     tempoVoltaP1 = tempoP1 - tempoAntP1;
     tempoAntP1 = tempoP1;
-    Serial.print("T-0-");
+    Serial.print("T*0*");
     Serial.println(tempoVoltaP1 / 1000);
     estadoP1 = 0;
   } else {
@@ -62,7 +62,7 @@ void lerSensorP2() {
     tone(BUZZER, 1700, 700);
     tempoVoltaP2 = tempoP2 - tempoAntP2;
     tempoAntP2 = tempoP2;
-    Serial.print("T-1-");
+    Serial.print("T*1*");
     Serial.println(tempoVoltaP2 / 1000);  // divide por 1000 para transformar em millis
     estadoP2 = 0;
   } else {
@@ -75,7 +75,7 @@ void calcVeloP1() {
     float tempo = micros();
     float intervaloP1 = (float)(tempo - tempoP1);
     float velocidadeP1Km = (distancia / intervaloP1) * 3.6 * 32.0;  // 3.6(converte para km/h) 32(escala do carro)
-    Serial.print("V-0-");
+    Serial.print("V*0*");
     Serial.println(int(velocidadeP1Km));
     estadoP1 = 1;
   }
@@ -86,7 +86,7 @@ void calcVeloP2() {
     float tempo = micros();
     float intervaloP2 = (float)(tempo - tempoP2);
     float velocidadeP2Km = (distancia / intervaloP2) * 3.6 * 32.0;  // 3.6(converte para km/h) 32(escala do carro)
-    Serial.print("V-1-");
+    Serial.print("V*1*");
     Serial.println(int(velocidadeP2Km));
     estadoP2 = 1;
   }

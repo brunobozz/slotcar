@@ -90,7 +90,7 @@ export class RaceComponent implements OnInit {
   private listenLap() {
     this.socketIo.listen().subscribe((res: any) => {
       let data = res.split('\r');
-      data = data[0].split('-');
+      data = data[0].split('*');
 
       if (data[0] === 'V') {
         this.race.players[data[1]].speed = 0;
@@ -99,21 +99,20 @@ export class RaceComponent implements OnInit {
 
       let theLap = data;
 
-      if (theLap[1])
-        if (this.race.status == 'free') {
+      if (this.race.status == 'free') {
+        this.recordLap(theLap);
+      } else if (this.race.status == 'started') {
+        // chama a gravação da volta para cada player
+        if (this.race.players[theLap[1]].laps.length + 1 == this.race.laps) {
           this.recordLap(theLap);
-        } else if (this.race.status == 'started') {
-          // chama a gravação da volta para cada player
-          if (this.race.players[theLap[1]].laps.length + 1 == this.race.laps) {
-            this.recordLap(theLap);
-            this.finishRace(theLap);
-          } else {
-            this.recordLap(theLap);
-          }
-        } else if (this.race.status == 'releasing') {
-          // chama queimou a largada
-          this.burnedRelease(theLap);
+          this.finishRace(theLap);
+        } else {
+          this.recordLap(theLap);
         }
+      } else if (this.race.status == 'releasing') {
+        // chama queimou a largada
+        this.burnedRelease(theLap);
+      }
     });
   }
 
