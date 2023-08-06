@@ -20,11 +20,12 @@ export class RaceComponent implements OnInit {
         driver: {},
         car: {},
         laps: [],
+        speed: 0,
       },
     ],
   };
   public fast = {
-    driver: 'FASTAST LAP',
+    driver: 'FASTEST LAP',
     lap: '',
   };
 
@@ -75,6 +76,7 @@ export class RaceComponent implements OnInit {
             driver: {},
             car: {},
             laps: [],
+            speed: 0,
           });
         } else {
           this.race.players.pop();
@@ -87,8 +89,16 @@ export class RaceComponent implements OnInit {
   // escuta a volta marcada
   private listenLap() {
     this.socketIo.listen().subscribe((res: any) => {
-      let theLap = res.split('\r');
-      theLap = theLap[0].split('-');
+      let data = res.split('\r');
+      data = data[0].split('*');
+
+      if (data[0] === 'V') {
+        this.race.players[data[1]].speed = 0;
+        this.race.players[data[1]].speed = +data[2];
+      }
+
+      let theLap = data;
+
       if (this.race.status == 'free') {
         this.recordLap(theLap);
       } else if (this.race.status == 'started') {
@@ -189,10 +199,11 @@ export class RaceComponent implements OnInit {
   }
 
   public resetRace() {
-    this.race.players[0].firstLap = true;
-    this.race.players[1].firstLap = true;
-    this.race.players[0].laps = [];
-    this.race.players[1].laps = [];
+    this.race.players.map((player: any) => {
+      player.firstLap = true;
+      player.laps = [];
+      player.speed = 0;
+    });
     this.lights = [];
     this.fast.driver = '- FASTEST LAP';
     this.fast.lap = '';

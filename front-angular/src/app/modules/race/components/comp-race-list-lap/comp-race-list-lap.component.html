@@ -7,6 +7,9 @@
         <span class="d-none d-sm-block"> LAP&nbsp;</span>
         <span>{{ player.laps.length + 1 }}</span>
       </div>
+      <span *ngIf="player.speed" class="fw-bold text-success"
+        >{{ player.speed }} km/h</span
+      >
       <race-chronometer [laps]="player.laps"></race-chronometer>
     </div>
     <div
